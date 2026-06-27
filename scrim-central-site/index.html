@@ -36,9 +36,16 @@
                 <button id="nav-brackets" onclick="switchTab('brackets')" class="hover:text-white transition focus:outline-none uppercase font-bold">Roadmap</button>
                 <button id="nav-leaderboard" onclick="switchTab('leaderboard')" class="hover:text-white transition focus:outline-none uppercase font-bold">Leaderboard</button>
             </div>
-            <button onclick="toggleModal(true)" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs tracking-wider px-5 py-2.5 rounded shadow-lg transition">
-                REGISTER TEAM
-            </button>
+            
+            <!-- Auth / Profile Control Button -->
+            <div class="flex items-center space-x-4">
+                <button id="auth-nav-btn" onclick="openAuthModal('login')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
+                    LOGIN / SIGNUP
+                </button>
+                <button onclick="toggleModal(true)" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs tracking-wider px-5 py-2.5 rounded shadow-lg transition">
+                    REGISTER TEAM
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -138,7 +145,7 @@
                         <th class="px-6 py-4">Rank</th>
                         <th class="px-6 py-4">Squad Name</th>
                         <th class="px-6 py-4 text-center">Matches</th>
-                        <th class="px-6 py-4 text-center">WWCD</th>
+                        <th class="px-6 py-4 text-center">Booyah!</th>
                         <th class="px-6 py-4 text-center">Place Pts</th>
                         <th class="px-6 py-4 text-center">Kill Pts</th>
                         <th class="px-6 py-4 text-center text-red-500">Total Points</th>
@@ -177,7 +184,47 @@
         </div>
     </div>
 
-    <!-- Registration Modal -->
+    <!-- Dynamic Auth Modal (Login & Signup) -->
+    <div id="authModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
+            <!-- Modal Header -->
+            <div class="border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-[#111319]">
+                <h2 id="authModalTitle" class="text-xs font-header font-bold tracking-wider text-white uppercase">SQUAD ACCESS SYSTEM</h2>
+                <button onclick="closeAuthModal()" class="text-gray-400 hover:text-white text-xl font-bold focus:outline-none">&times;</button>
+            </div>
+            
+            <!-- Auth Form -->
+            <form id="authForm" onsubmit="handleAuthSubmit(event)" class="p-6 space-y-4 text-sm">
+                <!-- Signup Extra Field (Hidden during Login) -->
+                <div id="divClanName" class="hidden">
+                    <label class="block text-xs font-header font-bold text-gray-400 uppercase tracking-wider mb-1">Official Clan Tag / Name</label>
+                    <input type="text" id="authClanName" placeholder="e.g., UVx4OPERATORS" class="w-full bg-[#050608] border border-gray-800 rounded px-4 py-2.5 text-white focus:outline-none focus:border-red-500 transition font-medium">
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-header font-bold text-gray-400 uppercase tracking-wider mb-1">Leader Email Address</label>
+                    <input type="email" id="authEmail" required placeholder="leader@domain.com" class="w-full bg-[#050608] border border-gray-800 rounded px-4 py-2.5 text-white focus:outline-none focus:border-red-500 transition font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-header font-bold text-gray-400 uppercase tracking-wider mb-1">Secure Password</label>
+                    <input type="password" id="authPassword" required placeholder="••••••••" class="w-full bg-[#050608] border border-gray-800 rounded px-4 py-2.5 text-white focus:outline-none focus:border-red-500 transition font-medium">
+                </div>
+                
+                <button type="submit" id="authSubmitBtn" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-bold py-3 rounded uppercase tracking-wider text-xs shadow-lg transition">
+                    VERIFY & ENTER
+                </button>
+
+                <!-- Toggle Mode Link -->
+                <div class="text-center pt-2">
+                    <p id="authToggleText" class="text-xs text-gray-400">
+                        New clan here? <a href="javascript:void(0)" onclick="toggleAuthMode('signup')" class="text-red-500 hover:underline font-bold">Create Leader Account</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Slot Registration Modal -->
     <div id="regModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
             <div class="border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-[#111319]">
@@ -202,10 +249,59 @@
 
     <!-- Interface Logic Core -->
     <script>
+        let currentAuthMode = 'login';
+
         function toggleModal(show) {
             const modal = document.getElementById('regModal');
             if (show) modal.classList.remove('hidden');
             else modal.classList.add('hidden');
+        }
+
+        function openAuthModal(mode) {
+            document.getElementById('authModal').classList.remove('hidden');
+            toggleAuthMode(mode);
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+            document.getElementById('authForm').reset();
+        }
+
+        function toggleAuthMode(mode) {
+            currentAuthMode = mode;
+            const clanField = document.getElementById('divClanName');
+            const title = document.getElementById('authModalTitle');
+            const submitBtn = document.getElementById('authSubmitBtn');
+            const toggleText = document.getElementById('authToggleText');
+
+            if (mode === 'signup') {
+                clanField.classList.remove('hidden');
+                document.getElementById('authClanName').required = true;
+                title.innerText = "CREATE CLAN ACCOUNT";
+                submitBtn.innerText = "REGISTER & SECURE ACCESS";
+                toggleText.innerHTML = "Already have an account? <a href='javascript:void(0)' onclick='toggleAuthMode(\"login\")' class='text-red-500 hover:underline font-bold'>Login here</a>";
+            } else {
+                clanField.classList.add('hidden');
+                document.getElementById('authClanName').required = false;
+                title.innerText = "SQUAD ACCESS SYSTEM";
+                submitBtn.innerText = "VERIFY & ENTER";
+                toggleText.innerHTML = "New clan here? <a href='javascript:void(0)' onclick='toggleAuthMode(\"signup\")' class='text-red-500 hover:underline font-bold'>Create Leader Account</a>";
+            }
+        }
+
+        function handleAuthSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('authEmail').value;
+            
+            if (currentAuthMode === 'signup') {
+                const clan = document.getElementById('authClanName').value;
+                alert("🎮 Account Created Successfully for Clan: " + clan + "!\nWelcome to UV Esports Portal.");
+                document.getElementById('auth-nav-btn').innerText = clan.toUpperCase();
+            } else {
+                alert("🔓 Access Granted!\nLeader Session Started for: " + email);
+                document.getElementById('auth-nav-btn').innerText = "DASHBOARD";
+            }
+            closeAuthModal();
         }
 
         function switchTab(tabId) {
