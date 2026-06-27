@@ -10,31 +10,43 @@
         body { font-family: 'Space Grotesk', sans-serif; background-color: #050608; }
         .font-gaming { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
         .font-header { font-family: 'Orbitron', sans-serif; letter-spacing: 0.08em; }
-        .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
+        .premium-gradient {
+            background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608);
+        }
     </style>
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
 
-    <!-- Same Navbar -->
-    <nav class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+    <!-- Same Professional Unified Header -->
+    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="https://i.ibb.co/6wGZffm/uv-logo.png" alt="UV ESPORTS LOGO" class="h-9 w-auto object-contain bg-transparent">
+            <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
+                <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
+                    <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
+                    UV<span class="text-white font-medium">ESPORTS</span>
+                </span>
             </a>
-            <div class="hidden md:flex space-x-8 font-gaming text-sm tracking-widest text-gray-400">
-                <a href="index.html" class="hover:text-white transition uppercase font-bold">Arena</a>
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-gaming text-sm tracking-widest text-gray-400">
+                <a href="index.html" class="hover:text-white transition uppercase font-bold">Home</a>
                 <a href="leaderboard.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="hover:text-white transition uppercase font-bold">Register</a>
-            </div>
+            </nav>
             <div class="flex items-center space-x-4">
-                <button onclick="alert('🔒 Protection Active')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">SQUAD LOGIN</button>
+                <button onclick="alert('🔒 Dashboard Access restricted to verified Organizers.')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
+                    ORGANIZER LOGIN
+                </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Leaderboard Core Table -->
-    <main class="max-w-7xl mx-auto px-6 py-12 w-full space-y-6">
-        <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3">Scrim Standings</h2>
+    <!-- Leaderboard Core Stats Section -->
+    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-8">
+        <div class="border-l-4 border-red-500 pl-3">
+            <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Live Standings</p>
+            <h2 class="text-2xl font-header font-black uppercase text-white">Overall Standings Matrix</h2>
+        </div>
+
         <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
             <table class="w-full text-left border-collapse">
                 <thead>
@@ -42,21 +54,39 @@
                         <th class="px-6 py-4">Rank</th>
                         <th class="px-6 py-4">Squad Name</th>
                         <th class="px-6 py-4 text-center">Matches</th>
+                        <th class="px-6 py-4 text-center">Booyah!</th>
+                        <th class="px-6 py-4 text-center">Place Pts</th>
+                        <th class="px-6 py-4 text-center">Kill Pts</th>
                         <th class="px-6 py-4 text-center text-red-500">Total Points</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-900 text-base font-bold font-gaming">
                     <tr class="hover:bg-gray-900/40 transition">
                         <td class="px-6 py-4 font-header font-black text-xl text-yellow-500"># 01</td>
-                        <td class="px-6 py-4 text-white text-lg font-header">UVx4OPERATORS</td>
-                        <td class="px-6 py-4 text-center text-gray-400">05</td>
-                        <td class="px-6 py-4 text-center text-red-500 text-2xl font-header">83</td>
+                        <td class="px-6 py-4 text-white text-lg font-header tracking-wide">UVx4OPERATORS</td>
+                        <td class="px-6 py-4 text-center text-gray-300">05</td>
+                        <td class="px-6 py-4 text-center text-green-400 text-lg">03</td>
+                        <td class="px-6 py-4 text-center text-gray-400">45</td>
+                        <td class="px-6 py-4 text-center text-gray-400">38</td>
+                        <td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">83</td>
                     </tr>
                     <tr class="hover:bg-gray-900/40 transition">
                         <td class="px-6 py-4 font-header font-black text-xl text-gray-400"># 02</td>
-                        <td class="px-6 py-4 text-white text-lg font-header">TEAM INFERNO</td>
-                        <td class="px-6 py-4 text-center text-gray-400">05</td>
-                        <td class="px-6 py-4 text-center text-red-500 text-2xl font-header">58</td>
+                        <td class="px-6 py-4 text-white text-lg font-header tracking-wide">TEAM INFERNO</td>
+                        <td class="px-6 py-4 text-center text-gray-300">05</td>
+                        <td class="px-6 py-4 text-center text-green-400 text-lg">01</td>
+                        <td class="px-6 py-4 text-center text-gray-400">32</td>
+                        <td class="px-6 py-4 text-center text-gray-400">26</td>
+                        <td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">58</td>
+                    </tr>
+                    <tr class="hover:bg-gray-900/40 transition">
+                        <td class="px-6 py-4 font-header font-black text-xl text-amber-700"># 03</td>
+                        <td class="px-6 py-4 text-white text-lg font-header tracking-wide">UNDERDOGS KI TOLI</td>
+                        <td class="px-6 py-4 text-center text-gray-300">05</td>
+                        <td class="px-6 py-4 text-center text-gray-600 text-lg">01</td>
+                        <td class="px-6 py-4 text-center text-gray-400">20</td>
+                        <td class="px-6 py-4 text-center text-gray-400">22</td>
+                        <td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">42</td>
                     </tr>
                 </tbody>
             </table>
@@ -64,8 +94,11 @@
     </main>
 
     <!-- Same Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-6 text-center text-xs text-gray-500 w-full">
-        <p>&copy; 2026 UV ESPORTS. Managed by Underdogs Ki Toli.</p>
+    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
+        <p class="font-header font-black text-sm tracking-wider text-gray-400 uppercase">UV ESPORTS</p>
+        <p class="text-[10px] uppercase font-gaming tracking-widest text-gray-600">Scrims &bull; Results &bull; Tournaments &bull; Brand Operations</p>
+        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. Managed by UV ESPORTS. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>
