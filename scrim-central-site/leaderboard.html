@@ -10,15 +10,12 @@
         body { font-family: 'Space Grotesk', sans-serif; background-color: #050608; }
         .font-gaming { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
         .font-header { font-family: 'Orbitron', sans-serif; letter-spacing: 0.08em; }
-        .premium-gradient {
-            background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608);
-        }
+        .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
     </style>
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
 
-    <!-- Same Professional Unified Header -->
+    <!-- Header Navigation -->
     <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
@@ -29,22 +26,21 @@
             </a>
             <nav class="hidden md:flex space-x-6 lg:space-x-8 font-gaming text-sm tracking-widest text-gray-400">
                 <a href="index.html" class="hover:text-white transition uppercase font-bold">Home</a>
+                <a href="tournaments.html" class="hover:text-white transition uppercase font-bold">Tournaments</a>
+                <a href="scrims.html" class="hover:text-white transition uppercase font-bold">Scrims</a>
+                <a href="results.html" class="hover:text-white transition uppercase font-bold">Results</a>
                 <a href="leaderboard.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="hover:text-white transition uppercase font-bold">Register</a>
             </nav>
-            <div class="flex items-center space-x-4">
-                <button onclick="alert('🔒 Dashboard Access restricted to verified Organizers.')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
-                    ORGANIZER LOGIN
-                </button>
-            </div>
+            <div><a href="register.html" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs px-5 py-2.5 rounded transition">REGISTER NOW</a></div>
         </div>
     </header>
 
-    <!-- Leaderboard Core Stats Section -->
+    <!-- Leaderboard Core Table Section -->
     <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-8">
         <div class="border-l-4 border-red-500 pl-3">
             <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Live Standings</p>
-            <h2 class="text-2xl font-header font-black uppercase text-white">Overall Standings Matrix</h2>
+            <h2 class="text-2xl font-header font-black uppercase text-white">Overall Standings</h2>
         </div>
 
         <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
@@ -93,12 +89,10 @@
         </div>
     </main>
 
-    <!-- Same Footer -->
+    <!-- Footer -->
     <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
-        <p class="font-header font-black text-sm tracking-wider text-gray-400 uppercase">UV ESPORTS</p>
-        <p class="text-[10px] uppercase font-gaming tracking-widest text-gray-600">Scrims &bull; Results &bull; Tournaments &bull; Brand Operations</p>
-        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. Managed by UV ESPORTS. All Rights Reserved.</p>
+        <p class="font-header font-black text-sm text-gray-400 uppercase">UV ESPORTS</p>
+        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
