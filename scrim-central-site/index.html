@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV ESPORTS - Official Portal</title>
-    <!-- Tailwind CSS & Aggressive Premium Esports Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -23,35 +22,31 @@
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen">
 
-    <!-- Navbar -->
     <nav class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-red-500 text-3xl font-black tracking-wider font-header">UV<span class="text-white">ESPORTS</span></span>
-            </div>
-            <!-- Unique Nav Links -->
-            <div class="hidden md:flex space-x-8 font-gaming text-sm tracking-widest text-gray-400">
-                <button id="nav-home" onclick="switchTab('home')" class="text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold">Arena</button>
-                <button id="nav-tournaments" onclick="switchTab('tournaments')" class="hover:text-white transition focus:outline-none uppercase font-bold">Events</button>
-                <button id="nav-brackets" onclick="switchTab('brackets')" class="hover:text-white transition focus:outline-none uppercase font-bold">Roadmap</button>
-                <button id="nav-leaderboard" onclick="switchTab('leaderboard')" class="hover:text-white transition focus:outline-none uppercase font-bold">Leaderboard</button>
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTab('home')">
+                <img src="https://i.ibb.co/6wGZffm/uv-logo.png" alt="UV ESPORTS LOGO" class="h-9 w-auto object-contain bg-transparent">
             </div>
             
-            <!-- Auth / Profile Control Button -->
+            <div class="hidden md:flex space-x-8 font-gaming text-sm tracking-widest text-gray-400">
+                <button id="nav-home" onclick="switchTab('home')" class="text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold">Arena</button>
+                <button id="nav-tournaments" onclick="protectedAction(() => switchTab('tournaments'))" class="hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1">Events <span class="text-[9px] text-red-500 font-header">🔒</span></button>
+                <button id="nav-brackets" onclick="protectedAction(() => switchTab('brackets'))" class="hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1">Roadmap <span class="text-[9px] text-red-500 font-header">🔒</span></button>
+                <button id="nav-leaderboard" onclick="protectedAction(() => switchTab('leaderboard'))" class="hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1">Leaderboard <span class="text-[9px] text-red-500 font-header">🔒</span></button>
+            </div>
+            
             <div class="flex items-center space-x-4">
                 <button id="auth-nav-btn" onclick="openAuthModal('login')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
                     LOGIN / SIGNUP
                 </button>
-                <button onclick="toggleModal(true)" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs tracking-wider px-5 py-2.5 rounded shadow-lg transition">
+                <button onclick="protectedAction(() => toggleModal(true))" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs tracking-wider px-5 py-2.5 rounded shadow-lg transition">
                     REGISTER TEAM
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- TAB 1: ARENA (HOME) -->
     <div id="sec-home" class="tab-content max-w-7xl mx-auto px-6 py-10 space-y-12">
-        <!-- Fresh Banner -->
         <div class="bg-gradient-to-br from-[#0f1117] via-[#0b0c10] to-black border border-gray-800 rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
             <div class="space-y-4 max-w-2xl z-10">
                 <span class="bg-red-500/10 border border-red-500/30 text-red-500 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full font-gaming">DAILY SCALPING</span>
@@ -59,10 +54,9 @@
                     UV DAILY <br><span class="text-red-500">SCRIMS ARENA</span>
                 </h1>
                 <p class="text-gray-400 text-sm sm:text-base max-w-lg font-medium">
-                    Comeback Cup concluded! Welcome to the daily testing grounds for elite squads. Drop your roster details below to grab your daily slot verification.
+                    Comeback Cup concluded! Welcome to the daily testing grounds for elite squads. Login to your leader account to unlock slot booking sheets instantly.
                 </p>
                 
-                <!-- Social Connect Direct Buttons -->
                 <div class="flex flex-wrap gap-3 pt-3">
                     <a href="https://chat.whatsapp.com/FEbLS92HRer9EIiGlFJSEi" target="_blank" class="bg-green-600/10 border border-green-500/30 text-green-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-green-600/20 transition tracking-wider">WHATSAPP</a>
                     <a href="https://discord.com/invite/v6ucnHz9H6" target="_blank" class="bg-indigo-600/10 border border-indigo-500/30 text-indigo-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-indigo-600/20 transition tracking-wider">DISCORD</a>
@@ -70,24 +64,42 @@
                     <a href="https://www.youtube.com/channel/UCCZXU8QYxcuaYVtp6Z-aImw" target="_blank" class="bg-red-600/10 border border-red-500/30 text-red-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-red-600/20 transition tracking-wider">YOUTUBE</a>
                 </div>
             </div>
-            <button onclick="toggleModal(true)" class="w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white font-header tracking-wider font-black text-base px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition duration-200 z-10">
+            <button onclick="protectedAction(() => toggleModal(true))" class="w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white font-header tracking-wider font-black text-base px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition duration-200 z-10">
                 BOOK DAILY SLOT
             </button>
         </div>
 
-        <!-- Custom Metrics Widgets -->
+        <div class="bg-gradient-to-r from-[#0b0d13] to-[#07080c] border border-gray-900 rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-xl">
+            <div class="space-y-1">
+                <div class="text-3xl sm:text-4xl font-black font-header text-red-500 tracking-tight">50K+</div>
+                <div class="text-xs font-gaming font-bold text-gray-400 uppercase tracking-widest">Monthly Reach</div>
+            </div>
+            <div class="space-y-1 border-l border-gray-900 md:border-l">
+                <div class="text-3xl sm:text-4xl font-black font-header text-white tracking-tight">2,500+</div>
+                <div class="text-xs font-gaming font-bold text-gray-400 uppercase tracking-widest">Registered Gamers</div>
+            </div>
+            <div class="space-y-1 border-l border-gray-900">
+                <div class="text-3xl sm:text-4xl font-black font-header text-red-500 tracking-tight">₹10K+</div>
+                <div class="text-xs font-gaming font-bold text-gray-400 uppercase tracking-widest">Prize Pool Distributed</div>
+            </div>
+            <div class="space-y-1 border-l border-gray-900">
+                <div class="text-3xl sm:text-4xl font-black font-header text-white tracking-tight">500+</div>
+                <div class="text-xs font-gaming font-bold text-gray-400 uppercase tracking-widest">Lobbies Scrimmed</div>
+            </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2">
+            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="protectedAction(() => switchTab('tournaments'))">
                 <div class="text-red-500 text-xs font-gaming font-bold tracking-wider">⚡ SCRIMS FEED</div>
                 <h4 class="font-bold text-lg uppercase font-header text-white tracking-wide">Live Broadcasts</h4>
                 <p class="text-sm text-gray-400 font-medium">Top lobbies featured and streamed live on our official YouTube channel.</p>
             </div>
-            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2">
+            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="protectedAction(() => switchTab('brackets'))">
                 <div class="text-green-400 text-xs font-gaming font-bold tracking-wider">🏆 COMMUNITY</div>
                 <h4 class="font-bold text-lg uppercase font-header text-white tracking-wide">Underdogs Ki Toli</h4>
                 <p class="text-sm text-gray-400 font-medium">Exclusive Tier brackets maintained to give upcoming squads maximum visibility.</p>
             </div>
-            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2">
+            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="protectedAction(() => switchTab('leaderboard'))">
                 <div class="text-blue-400 text-xs font-gaming font-bold tracking-wider">🔥 INSTANT HELP</div>
                 <h4 class="font-bold text-lg uppercase font-header text-white tracking-wide">24/7 Mod Support</h4>
                 <p class="text-sm text-gray-400 font-medium">Connect via WhatsApp group or Discord server for slots dispute settlements.</p>
@@ -95,7 +107,6 @@
         </div>
     </div>
 
-    <!-- TAB 2: EVENTS LISTING -->
     <div id="sec-tournaments" class="tab-content hidden max-w-7xl mx-auto px-6 py-12">
         <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3 mb-8">Tournament Logs</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -113,7 +124,6 @@
         </div>
     </div>
 
-    <!-- TAB 3: ROADMAP / BRACKETS -->
     <div id="sec-brackets" class="tab-content hidden max-w-7xl mx-auto px-6 py-12">
         <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3 mb-8">Scrim Stage Distribution</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center py-6">
@@ -135,7 +145,6 @@
         </div>
     </div>
 
-    <!-- TAB 4: ACCURATE LEADERBOARD -->
     <div id="sec-leaderboard" class="tab-content hidden max-w-7xl mx-auto px-6 py-12">
         <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3 mb-8">Overall Standings</h2>
         <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
@@ -184,23 +193,17 @@
         </div>
     </div>
 
-    <!-- Dynamic Auth Modal (Login & Signup) -->
     <div id="authModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
-            <!-- Modal Header -->
             <div class="border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-[#111319]">
                 <h2 id="authModalTitle" class="text-xs font-header font-bold tracking-wider text-white uppercase">SQUAD ACCESS SYSTEM</h2>
                 <button onclick="closeAuthModal()" class="text-gray-400 hover:text-white text-xl font-bold focus:outline-none">&times;</button>
             </div>
-            
-            <!-- Auth Form -->
             <form id="authForm" onsubmit="handleAuthSubmit(event)" class="p-6 space-y-4 text-sm">
-                <!-- Signup Extra Field (Hidden during Login) -->
                 <div id="divClanName" class="hidden">
                     <label class="block text-xs font-header font-bold text-gray-400 uppercase tracking-wider mb-1">Official Clan Tag / Name</label>
                     <input type="text" id="authClanName" placeholder="e.g., UVx4OPERATORS" class="w-full bg-[#050608] border border-gray-800 rounded px-4 py-2.5 text-white focus:outline-none focus:border-red-500 transition font-medium">
                 </div>
-                
                 <div>
                     <label class="block text-xs font-header font-bold text-gray-400 uppercase tracking-wider mb-1">Leader Email Address</label>
                     <input type="email" id="authEmail" required placeholder="leader@domain.com" class="w-full bg-[#050608] border border-gray-800 rounded px-4 py-2.5 text-white focus:outline-none focus:border-red-500 transition font-medium">
@@ -209,12 +212,9 @@
                     <label class="block text-xs font-header font-bold text-gray-400 uppercase tracking-wider mb-1">Secure Password</label>
                     <input type="password" id="authPassword" required placeholder="••••••••" class="w-full bg-[#050608] border border-gray-800 rounded px-4 py-2.5 text-white focus:outline-none focus:border-red-500 transition font-medium">
                 </div>
-                
                 <button type="submit" id="authSubmitBtn" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-bold py-3 rounded uppercase tracking-wider text-xs shadow-lg transition">
                     VERIFY & ENTER
                 </button>
-
-                <!-- Toggle Mode Link -->
                 <div class="text-center pt-2">
                     <p id="authToggleText" class="text-xs text-gray-400">
                         New clan here? <a href="javascript:void(0)" onclick="toggleAuthMode('signup')" class="text-red-500 hover:underline font-bold">Create Leader Account</a>
@@ -224,7 +224,6 @@
         </div>
     </div>
 
-    <!-- Slot Registration Modal -->
     <div id="regModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
             <div class="border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-[#111319]">
@@ -247,9 +246,16 @@
         </div>
     </div>
 
-    <!-- Interface Logic Core -->
+    <footer class="mt-20 border-t border-gray-900 bg-[#06070a] py-8 text-center text-sm text-gray-500 space-y-3">
+        <div class="flex justify-center">
+            <img src="https://i.ibb.co/6wGZffm/uv-logo.png" alt="UV ESPORTS LOGO" class="h-6 w-auto opacity-40">
+        </div>
+        <p>&copy; 2026 UV ESPORTS. All Rights Reserved. Managed by Underdogs Ki Toli.</p>
+    </footer>
+
     <script>
         let currentAuthMode = 'login';
+        let isLoggedIn = false; // Auth Tracking State
 
         function toggleModal(show) {
             const modal = document.getElementById('regModal');
@@ -289,9 +295,20 @@
             }
         }
 
+        // tmresports Style Protection Handler
+        function protectedAction(callbackAction) {
+            if (!isLoggedIn) {
+                alert("❌ Restricted Access!\nPlease login or signup first to unlock this dashboard feature.");
+                openAuthModal('login');
+            } else {
+                callbackAction();
+            }
+        }
+
         function handleAuthSubmit(event) {
             event.preventDefault();
             const email = document.getElementById('authEmail').value;
+            isLoggedIn = true; // State unlocked
             
             if (currentAuthMode === 'signup') {
                 const clan = document.getElementById('authClanName').value;
@@ -311,10 +328,10 @@
             const navs = ['home', 'tournaments', 'brackets', 'leaderboard'];
             navs.forEach(id => {
                 const btn = document.getElementById('nav-' + id);
-                if(btn) btn.className = "hover:text-white transition focus:outline-none uppercase font-bold";
+                if(btn) btn.className = "hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1";
             });
             const activeBtn = document.getElementById('nav-' + tabId);
-            if(activeBtn) activeBtn.className = "text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold";
+            if(activeBtn) activeBtn.className = "text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold flex items-center gap-1";
         }
 
         function handleFormSubmit(event) {
