@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV ESPORTS - Official Portal</title>
+    <!-- Tailwind CSS & Aggressive Premium Esports Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -22,19 +23,26 @@
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen">
 
+    <!-- Navbar -->
     <nav class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Official Image Logo Ref from 534423917_3822947368006577_6915620192997490358_n.png via direct render proxy -->
             <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTab('home')">
-                <img src="https://i.ibb.co/6wGZffm/uv-logo.png" alt="UV ESPORTS LOGO" class="h-9 w-auto object-contain bg-transparent">
+                <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
+                    <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-sm font-black italic">UV</span>
+                    UV<span class="text-white font-medium">ESPORTS</span>
+                </span>
             </div>
             
+            <!-- FREE Nav Links for Everyone -->
             <div class="hidden md:flex space-x-8 font-gaming text-sm tracking-widest text-gray-400">
                 <button id="nav-home" onclick="switchTab('home')" class="text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold">Arena</button>
-                <button id="nav-tournaments" onclick="protectedAction(() => switchTab('tournaments'))" class="hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1">Events <span class="text-[9px] text-red-500 font-header">🔒</span></button>
-                <button id="nav-brackets" onclick="protectedAction(() => switchTab('brackets'))" class="hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1">Roadmap <span class="text-[9px] text-red-500 font-header">🔒</span></button>
-                <button id="nav-leaderboard" onclick="protectedAction(() => switchTab('leaderboard'))" class="hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1">Leaderboard <span class="text-[9px] text-red-500 font-header">🔒</span></button>
+                <button id="nav-tournaments" onclick="switchTab('tournaments')" class="hover:text-white transition focus:outline-none uppercase font-bold">Events</button>
+                <button id="nav-brackets" onclick="switchTab('brackets')" class="hover:text-white transition focus:outline-none uppercase font-bold">Roadmap</button>
+                <button id="nav-leaderboard" onclick="switchTab('leaderboard')" class="hover:text-white transition focus:outline-none uppercase font-bold">Leaderboard</button>
             </div>
             
+            <!-- Auth / Profile Status Control Button -->
             <div class="flex items-center space-x-4">
                 <button id="auth-nav-btn" onclick="openAuthModal('login')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
                     LOGIN / SIGNUP
@@ -46,7 +54,9 @@
         </div>
     </nav>
 
+    <!-- TAB 1: ARENA (HOME) -->
     <div id="sec-home" class="tab-content max-w-7xl mx-auto px-6 py-10 space-y-12">
+        <!-- Banner -->
         <div class="bg-gradient-to-br from-[#0f1117] via-[#0b0c10] to-black border border-gray-800 rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
             <div class="space-y-4 max-w-2xl z-10">
                 <span class="bg-red-500/10 border border-red-500/30 text-red-500 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full font-gaming">DAILY SCALPING</span>
@@ -57,6 +67,7 @@
                     Comeback Cup concluded! Welcome to the daily testing grounds for elite squads. Login to your leader account to unlock slot booking sheets instantly.
                 </p>
                 
+                <!-- Social Connect Direct Buttons -->
                 <div class="flex flex-wrap gap-3 pt-3">
                     <a href="https://chat.whatsapp.com/FEbLS92HRer9EIiGlFJSEi" target="_blank" class="bg-green-600/10 border border-green-500/30 text-green-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-green-600/20 transition tracking-wider">WHATSAPP</a>
                     <a href="https://discord.com/invite/v6ucnHz9H6" target="_blank" class="bg-indigo-600/10 border border-indigo-500/30 text-indigo-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-indigo-600/20 transition tracking-wider">DISCORD</a>
@@ -69,6 +80,7 @@
             </button>
         </div>
 
+        <!-- TMRESPORTS STYLED IMPACT ANALYTICS COUNTER GRID -->
         <div class="bg-gradient-to-r from-[#0b0d13] to-[#07080c] border border-gray-900 rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-xl">
             <div class="space-y-1">
                 <div class="text-3xl sm:text-4xl font-black font-header text-red-500 tracking-tight">50K+</div>
@@ -88,18 +100,19 @@
             </div>
         </div>
 
+        <!-- Custom Metrics Widgets -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="protectedAction(() => switchTab('tournaments'))">
+            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="switchTab('tournaments')">
                 <div class="text-red-500 text-xs font-gaming font-bold tracking-wider">⚡ SCRIMS FEED</div>
                 <h4 class="font-bold text-lg uppercase font-header text-white tracking-wide">Live Broadcasts</h4>
                 <p class="text-sm text-gray-400 font-medium">Top lobbies featured and streamed live on our official YouTube channel.</p>
             </div>
-            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="protectedAction(() => switchTab('brackets'))">
+            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="switchTab('brackets')">
                 <div class="text-green-400 text-xs font-gaming font-bold tracking-wider">🏆 COMMUNITY</div>
                 <h4 class="font-bold text-lg uppercase font-header text-white tracking-wide">Underdogs Ki Toli</h4>
                 <p class="text-sm text-gray-400 font-medium">Exclusive Tier brackets maintained to give upcoming squads maximum visibility.</p>
             </div>
-            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="protectedAction(() => switchTab('leaderboard'))">
+            <div class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl glow-border transition space-y-2 cursor-pointer" onclick="switchTab('leaderboard')">
                 <div class="text-blue-400 text-xs font-gaming font-bold tracking-wider">🔥 INSTANT HELP</div>
                 <h4 class="font-bold text-lg uppercase font-header text-white tracking-wide">24/7 Mod Support</h4>
                 <p class="text-sm text-gray-400 font-medium">Connect via WhatsApp group or Discord server for slots dispute settlements.</p>
@@ -107,6 +120,7 @@
         </div>
     </div>
 
+    <!-- TAB 2: EVENTS LISTING -->
     <div id="sec-tournaments" class="tab-content hidden max-w-7xl mx-auto px-6 py-12">
         <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3 mb-8">Tournament Logs</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -124,6 +138,7 @@
         </div>
     </div>
 
+    <!-- TAB 3: ROADMAP / BRACKETS -->
     <div id="sec-brackets" class="tab-content hidden max-w-7xl mx-auto px-6 py-12">
         <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3 mb-8">Scrim Stage Distribution</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center py-6">
@@ -145,6 +160,7 @@
         </div>
     </div>
 
+    <!-- TAB 4: ACCURATE LEADERBOARD -->
     <div id="sec-leaderboard" class="tab-content hidden max-w-7xl mx-auto px-6 py-12">
         <h2 class="text-3xl font-header font-black uppercase tracking-wider border-l-4 border-red-500 pl-3 mb-8">Overall Standings</h2>
         <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
@@ -193,6 +209,7 @@
         </div>
     </div>
 
+    <!-- Dynamic Auth Modal -->
     <div id="authModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
             <div class="border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-[#111319]">
@@ -224,6 +241,7 @@
         </div>
     </div>
 
+    <!-- Slot Registration Modal -->
     <div id="regModal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
             <div class="border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-[#111319]">
@@ -246,16 +264,15 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="mt-20 border-t border-gray-900 bg-[#06070a] py-8 text-center text-sm text-gray-500 space-y-3">
-        <div class="flex justify-center">
-            <img src="https://i.ibb.co/6wGZffm/uv-logo.png" alt="UV ESPORTS LOGO" class="h-6 w-auto opacity-40">
-        </div>
         <p>&copy; 2026 UV ESPORTS. All Rights Reserved. Managed by Underdogs Ki Toli.</p>
     </footer>
 
+    <!-- Interface Logic Core -->
     <script>
         let currentAuthMode = 'login';
-        let isLoggedIn = false; // Auth Tracking State
+        let isLoggedIn = false;
 
         function toggleModal(show) {
             const modal = document.getElementById('regModal');
@@ -295,10 +312,9 @@
             }
         }
 
-        // tmresports Style Protection Handler
         function protectedAction(callbackAction) {
             if (!isLoggedIn) {
-                alert("❌ Restricted Access!\nPlease login or signup first to unlock this dashboard feature.");
+                alert("🔒 Login Required!\nPlease login or create a clan account to book slots or register teams.");
                 openAuthModal('login');
             } else {
                 callbackAction();
@@ -308,7 +324,7 @@
         function handleAuthSubmit(event) {
             event.preventDefault();
             const email = document.getElementById('authEmail').value;
-            isLoggedIn = true; // State unlocked
+            isLoggedIn = true;
             
             if (currentAuthMode === 'signup') {
                 const clan = document.getElementById('authClanName').value;
@@ -328,10 +344,10 @@
             const navs = ['home', 'tournaments', 'brackets', 'leaderboard'];
             navs.forEach(id => {
                 const btn = document.getElementById('nav-' + id);
-                if(btn) btn.className = "hover:text-white transition focus:outline-none uppercase font-bold flex items-center gap-1";
+                if(btn) btn.className = "hover:text-white transition focus:outline-none uppercase font-bold";
             });
             const activeBtn = document.getElementById('nav-' + tabId);
-            if(activeBtn) activeBtn.className = "text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold flex items-center gap-1";
+            if(activeBtn) activeBtn.className = "text-white border-b-2 border-red-500 pb-1 focus:outline-none uppercase font-bold";
         }
 
         function handleFormSubmit(event) {
