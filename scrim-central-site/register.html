@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UV ESPORTS | Register</title>
+    <title>UV ESPORTS | Register Team</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Space Grotesk', sans-serif; background-color: #050608; }
         .font-gaming { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
         .font-header { font-family: 'Orbitron', sans-serif; letter-spacing: 0.08em; }
-        .premium-gradient {
-            background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608);
-        }
+        .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
     </style>
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
 
-    <!-- Same Professional Unified Header -->
+    <!-- Header Navigation -->
     <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
@@ -29,68 +26,64 @@
             </a>
             <nav class="hidden md:flex space-x-6 lg:space-x-8 font-gaming text-sm tracking-widest text-gray-400">
                 <a href="index.html" class="hover:text-white transition uppercase font-bold">Home</a>
+                <a href="tournaments.html" class="hover:text-white transition uppercase font-bold">Tournaments</a>
+                <a href="scrims.html" class="hover:text-white transition uppercase font-bold">Scrims</a>
+                <a href="results.html" class="hover:text-white transition uppercase font-bold">Results</a>
                 <a href="leaderboard.html" class="hover:text-white transition uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Register</a>
             </nav>
-            <div class="flex items-center space-x-4">
-                <button onclick="alert('🔒 Dashboard Access restricted to verified Organizers.')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
-                    ORGANIZER LOGIN
-                </button>
-            </div>
+            <div><a href="register.html" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs px-5 py-2.5 rounded transition animate-pulse">REGISTER NOW</a></div>
         </div>
     </header>
 
-    <!-- Registration Pipeline Form Display -->
+    <!-- Registration Content Area -->
     <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 w-full flex-grow">
-        <!-- Rules Grid Column -->
+        <!-- Rules Column -->
         <div class="space-y-6">
             <div class="border-l-4 border-red-500 pl-3">
-                <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Roster Alignment</p>
-                <h1 class="text-3xl font-black font-header text-white uppercase">Scrims Entry System</h1>
+                <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Rulebook</p>
+                <h1 class="text-3xl font-black font-header text-white uppercase">Scrim Entry System</h1>
             </div>
-            <p class="text-gray-400 text-sm">Please keep your squad layout checked before scheduling slot locks manually. Incorrect tags are systematically wiped out.</p>
             
-            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-6 space-y-4 text-sm font-gaming">
+            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-6 space-y-4 text-sm font-sans">
                 <div class="border-b border-gray-900 pb-3">
-                    <h4 class="font-bold text-red-500 font-header text-xs tracking-wider uppercase mb-1">📊 12 POINTS SCORING LAW</h4>
-                    <p class="text-gray-400 font-sans text-xs">Booyah gets 12 points, 2nd position pulls 9 points. Every raw drop finish/kill awards 1 point.</p>
+                    <h4 class="font-bold text-red-500 font-header text-xs tracking-wider uppercase mb-1">📊 Points System</h4>
+                    <p class="text-gray-400 text-xs">1st Place (Booyah): 12 Points | 2nd Place: 9 Points | 3rd Place: 8 Points. Each finish/kill awards exactly 1 Point.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-gray-300 font-header text-xs tracking-wider uppercase mb-1">🚫 PC/EMULATOR BAN POLICY</h4>
-                    <p class="text-gray-400 font-sans text-xs">Strict hardware anti-cheat compliance. Only pure mobile/tablets registers are permitted into rooms.</p>
+                    <h4 class="font-bold text-gray-300 font-header text-xs tracking-wider uppercase mb-1">🚫 Restrictions</h4>
+                    <p class="text-gray-400 text-xs">Only Mobile/Tablet devices are permitted. Emulators or PC setups are strictly banned.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Interactive Registry Box -->
+        <!-- Secure Form Box -->
         <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-8 shadow-2xl space-y-6 h-max">
             <div>
-                <h2 class="text-lg font-header font-black uppercase text-white tracking-wide">SECURE CLAN SLOTS ENTRY</h2>
-                <p class="text-[10px] uppercase font-gaming tracking-wider text-gray-500 pt-1">Managed securely by Underdogs Ki Toli</p>
+                <h2 class="text-lg font-header font-black uppercase text-white tracking-wide">Secure Team Registration</h2>
+                <p class="text-[10px] uppercase font-gaming tracking-wider text-gray-500 pt-1">Managed by Underdogs Ki Toli</p>
             </div>
             
-            <form onsubmit="event.preventDefault(); alert('🔥 Clan Roster logged into UV Data Nodes! Updates will be instantly pushed to WhatsApp logs.');" class="space-y-4 text-xs font-gaming">
+            <form onsubmit="event.preventDefault(); alert('🔥 Clan Roster submitted successfully! Check WhatsApp Group for Slot List update.');" class="space-y-4 text-xs font-gaming">
                 <div>
-                    <label class="block text-gray-400 uppercase font-bold tracking-wider mb-1">OFFICIAL CLAN NAME TAG</label>
+                    <label class="block text-gray-400 uppercase font-bold mb-1">Squad / Clan Name</label>
                     <input type="text" required placeholder="e.g., UVx4OPERATORS" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
                 </div>
                 <div>
-                    <label class="block text-gray-400 uppercase font-bold tracking-wider mb-1">LEADER WHATSAPP CONTACT</label>
-                    <input type="tel" required placeholder="10 DIGIT ACTIVE NUMBER" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                    <label class="block text-gray-400 uppercase font-bold mb-1">Leader WhatsApp Number</label>
+                    <input type="tel" required placeholder="10 Digit Number" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
                 </div>
-                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-black py-4 rounded-xl uppercase tracking-wider text-xs shadow-md transition duration-200">
-                    DISPATCH ROSTER MATRIX DATA
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-black py-4 rounded-xl uppercase tracking-wider text-xs shadow-md transition">
+                    Submit Team Details
                 </button>
             </form>
         </div>
     </main>
 
-    <!-- Same Footer -->
+    <!-- Footer -->
     <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
-        <p class="font-header font-black text-sm tracking-wider text-gray-400 uppercase">UV ESPORTS</p>
-        <p class="text-[10px] uppercase font-gaming tracking-widest text-gray-600">Scrims &bull; Results &bull; Tournaments &bull; Brand Operations</p>
-        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. Managed by UV ESPORTS. All Rights Reserved.</p>
+        <p class="font-header font-black text-sm text-gray-400 uppercase">UV ESPORTS</p>
+        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
