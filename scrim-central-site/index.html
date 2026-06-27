@@ -14,14 +14,18 @@
             background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%),
                         radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608);
         }
+        .glow-border:hover {
+            box-shadow: 0 0 25px rgba(220, 38, 38, 0.2);
+            border-color: rgba(220, 38, 38, 0.4);
+        }
     </style>
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
 
-    <!-- Professional Fixed Navbar -->
-    <nav class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+    <!-- Premium Unified Header (tmresports Style) -->
+    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Fixed Logo Identity from the custom logotype structure -->
+            <!-- Official Identity Logotype Text Base -->
             <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
                 <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
                     <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
@@ -29,46 +33,51 @@
                 </span>
             </a>
             
-            <!-- Guaranteed Navigation Links -->
-            <div class="flex space-x-6 sm:space-x-8 font-gaming text-xs sm:text-sm tracking-widest text-gray-400">
-                <a href="index.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Arena</a>
+            <!-- Real Complete Page-to-Page Text Navigation -->
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-gaming text-sm tracking-widest text-gray-400">
+                <a href="index.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Home</a>
                 <a href="leaderboard.html" class="hover:text-white transition uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="hover:text-white transition uppercase font-bold">Register</a>
-            </div>
+            </nav>
             
-            <!-- Quick Session Control -->
-            <div class="hidden sm:block">
-                <button onclick="alert('🔒 Dashboard Login is premium-protected.')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
-                    SQUAD LOGIN
+            <div class="flex items-center space-x-4">
+                <button onclick="alert('🔒 Dashboard Access restricted to verified Organizers.')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
+                    ORGANIZER LOGIN
                 </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Dynamic Frame -->
-    <main class="max-w-7xl mx-auto px-6 py-12 space-y-12 w-full flex-grow">
-        <!-- Showcase Main Banner Container -->
-        <div class="bg-gradient-to-br from-[#0f1117] via-[#0b0c10] to-black border border-gray-800 rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
+    <!-- Main Content Arena -->
+    <main class="max-w-7xl mx-auto px-6 py-12 space-y-16 w-full flex-grow">
+        
+        <!-- Hero Section (maxesports Style Graphic Element Layout) -->
+        <section class="bg-gradient-to-br from-[#0f1117] via-[#0b0c10] to-black border border-gray-800 rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
             <div class="space-y-4 max-w-2xl z-10">
-                <span class="bg-red-500/10 border border-red-500/30 text-red-500 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full font-gaming">ESTD. 2024</span>
+                <p class="bg-red-500/10 border border-red-500/30 text-red-500 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full w-max font-gaming">ESTD. 2024 &bull; OFFICIAL ESYSTEM</p>
                 <h1 class="text-5xl sm:text-6xl font-black font-header text-white uppercase leading-none">
-                    #RULE THE <br><span class="text-red-500">ARENA HUB</span>
+                    #RULE THE <br><span class="text-red-500">ARENA REALM</span>
                 </h1>
                 <p class="text-gray-400 text-sm max-w-lg font-medium">
-                    Official platform for Free Fire MAX scrims, dynamic tournament management, and real-time leaderboard statistics processing.
+                    Free Fire MAX scrims orchestration, corporate brand tournament operations, high-fidelity overlay broadcasts, and real-time automation scoring grids.
                 </p>
                 <div class="flex flex-wrap gap-3 pt-2">
                     <a href="https://chat.whatsapp.com/FEbLS92HRer9EIiGlFJSEi" target="_blank" class="bg-green-600/10 border border-green-500/30 text-green-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-green-600/20 transition tracking-wider">WHATSAPP</a>
                     <a href="https://discord.com/invite/v6ucnHz9H6" target="_blank" class="bg-indigo-600/10 border border-indigo-500/30 text-indigo-400 text-xs font-gaming font-bold px-4 py-2 rounded hover:bg-indigo-600/20 transition tracking-wider">DISCORD</a>
                 </div>
             </div>
-            <a href="register.html" class="text-center w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white font-header tracking-wider font-black text-base px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition duration-200 z-10">
-                BOOK SCRIMS SLOT
-            </a>
-        </div>
+            <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto z-10">
+                <a href="register.html" class="text-center bg-red-600 hover:bg-red-700 text-white font-header tracking-wider font-black text-sm px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+                    REGISTER TEAM
+                </a>
+                <a href="leaderboard.html" class="text-center border border-gray-700 hover:border-white text-gray-300 font-header tracking-wider font-black text-sm px-8 py-4 rounded-xl transition duration-200">
+                    VIEW STANDINGS
+                </a>
+            </div>
+        </section>
 
-        <!-- Metric Display Framework -->
-        <div class="bg-gradient-to-r from-[#0b0d13] to-[#07080c] border border-gray-900 rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-xl">
+        <!-- TMREsports Analytics Counters Data Frame -->
+        <section class="bg-gradient-to-r from-[#0b0d13] to-[#07080c] border border-gray-900 rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-xl">
             <div>
                 <div class="text-3xl font-black font-header text-red-500">50K+</div>
                 <div class="text-xs font-gaming font-bold text-gray-400 uppercase tracking-widest mt-1">Monthly Reach</div>
@@ -85,12 +94,111 @@
                 <div class="text-3xl font-black font-header text-white">500+</div>
                 <div class="text-xs font-gaming font-bold text-gray-400 uppercase tracking-widest mt-1">Custom Lobbies</div>
             </div>
-        </div>
+        </section>
+
+        <!-- NEW: LIVE BATTLEFIELDS TABULAR FILTER MATRIX (maxesports Style) -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-900 pb-4">
+                <div class="border-l-4 border-red-500 pl-3">
+                    <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Tournament Logs</p>
+                    <h2 class="text-2xl font-header font-black uppercase text-white">Active Battlefields</h2>
+                </div>
+                <!-- Dynamic Action Filters Controls -->
+                <div class="flex space-x-2 bg-black/40 p-1 border border-gray-900 rounded-lg text-xs font-gaming font-bold">
+                    <button class="bg-red-600 px-4 py-1.5 rounded text-white">ALL EVENTS</button>
+                    <button onclick="alert('Daily Scrims scheduling grids are updated under Register page.')" class="px-4 py-1.5 rounded text-gray-400 hover:text-white transition">LIVE SCRIMS</button>
+                </div>
+            </div>
+
+            <!-- Enhanced Functional Event Cards Pipeline Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <article class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl space-y-4 glow-border transition">
+                    <div class="flex justify-between items-center"><span class="text-[10px] bg-red-600/10 border border-red-500/30 text-red-500 px-2 py-0.5 rounded font-bold font-gaming uppercase">DAILY SCHEDULE</span><span class="text-xs text-gray-500 font-gaming font-bold">FREE FIRE MAX</span></div>
+                    <h3 class="text-lg font-bold font-header uppercase text-white tracking-wide">Daily Scrims Arena</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Keep competitive stacks aligned with real-time lobbies, precise slot distribution maps, and custom points charts tracking.</p>
+                    <div class="pt-2 flex justify-between items-center text-xs border-t border-gray-900 font-gaming">
+                        <span class="text-gray-500 font-bold">STATUS: <span class="text-green-400">OPEN</span></span>
+                        <a href="register.html" class="text-red-500 hover:underline font-bold">BOOK SLOT &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl space-y-4 glow-border transition opacity-75">
+                    <div class="flex justify-between items-center"><span class="text-[10px] bg-gray-800 text-gray-400 px-2 py-0.5 rounded font-bold font-gaming uppercase">CONCLUDED</span><span class="text-xs text-gray-500 font-gaming font-bold">₹10K POOL</span></div>
+                    <h3 class="text-lg font-bold font-header uppercase text-gray-400 tracking-wide">Comeback Cup - S1</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">The premier community championship has concluded. All prize matrix distributions completed successfully to champion roster.</p>
+                    <div class="pt-2 flex justify-between items-center text-xs border-t border-gray-900 font-gaming text-gray-500">
+                        <span>CHAMPION: <b class="text-yellow-500 font-header text-[11px]">UVx4OPERATORS</b></span>
+                        <a href="leaderboard.html" class="hover:underline font-bold text-gray-400">VIEW MATRIX</a>
+                    </div>
+                </article>
+
+                <article class="bg-[#0b0d13] border border-gray-900 p-6 rounded-xl space-y-4 glow-border transition">
+                    <div class="flex justify-between items-center"><span class="text-[10px] bg-purple-600/10 border border-purple-500/30 text-purple-400 px-2 py-0.5 rounded font-bold font-gaming uppercase">BRAND INTEL</span><span class="text-xs text-gray-500 font-gaming font-bold">CUSTOM OPS</span></div>
+                    <h3 class="text-lg font-bold font-header uppercase text-white tracking-wide">Corporate Leagues</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Bespoke e-tournament hosting, moderator frameworks, result assets deployment, and dedicated software integration for third-party clans.</p>
+                    <div class="pt-2 flex justify-between items-center text-xs border-t border-gray-900 font-gaming">
+                        <span class="text-gray-500 font-bold">PARTNER READY</span>
+                        <span class="text-purple-400 font-bold uppercase">MANAGED BY UV</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- NEW: REVOLUTIONARY AGENCY VERTICALS SECTION (tmresports Pure Corporate Look) -->
+        <section class="space-y-6">
+            <div class="border-l-4 border-red-500 pl-3">
+                <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Capabilities</p>
+                <h2 class="text-2xl font-header font-black uppercase text-white">Our Core Verticals</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-gaming">
+                <div class="bg-[#07090d] border border-gray-900 p-5 rounded-xl space-y-2">
+                    <div class="text-red-500 font-header font-bold text-xl">01</div>
+                    <h4 class="text-white text-base font-bold uppercase font-header tracking-wide">League Operations</h4>
+                    <p class="text-xs text-gray-400 tracking-normal font-sans">End-to-end multi-tier tournament rulebook formatting and dispute settlements infrastructure.</p>
+                </div>
+                <div class="bg-[#07090d] border border-gray-900 p-5 rounded-xl space-y-2">
+                    <div class="text-red-500 font-header font-bold text-xl">02</div>
+                    <h4 class="text-white text-base font-bold uppercase font-header tracking-wide">Broadcast Overlays</h4>
+                    <p class="text-xs text-gray-400 tracking-normal font-sans">High-quality responsive graphic packages, tickers, and stats streams production pipelines.</p>
+                </div>
+                <div class="bg-[#07090d] border border-gray-900 p-5 rounded-xl space-y-2">
+                    <div class="text-red-500 font-header font-bold text-xl">03</div>
+                    <h4 class="text-white text-base font-bold uppercase font-header tracking-wide">Talent Management</h4>
+                    <p class="text-xs text-gray-400 tracking-normal font-sans">Providing upcoming underdog clusters and seasoned rosters optimal exposure metrics logs.</p>
+                </div>
+                <div class="bg-[#07090d] border border-gray-900 p-5 rounded-xl space-y-2">
+                    <div class="text-red-500 font-header font-bold text-xl">04</div>
+                    <h4 class="text-white text-base font-bold uppercase font-header tracking-wide">Software Automation</h4>
+                    <p class="text-xs text-gray-400 tracking-normal font-sans">Algorithmic placement computations processing tables avoiding mathematical human manual error.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: CONTACT & BRAND QUERIES SYSTEM (maxesports Framework Integration) -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-gradient-to-br from-[#0a0c12] to-[#050608] border border-gray-900 rounded-2xl p-8 shadow-xl">
+            <div class="lg:col-span-1 space-y-3">
+                <span class="text-xs font-gaming font-bold text-red-500 tracking-widest uppercase">CONNECT NOW</span>
+                <h3 class="text-2xl font-header font-black uppercase text-white">Join Forces with UV ESPORTS</h3>
+                <p class="text-xs text-gray-400 leading-relaxed font-sans">Whether you represent an elite team cluster or a brand seeking maximum youth demographic engagement, our operations desks are fully open 24/7.</p>
+            </div>
+            <div class="lg:col-span-2">
+                <form onsubmit="event.preventDefault(); alert('📩 Message dispatched to UV Operations Hub! Our moderators will contact you.');" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-gaming">
+                    <input type="text" required placeholder="YOUR FULL NAME" class="bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 font-medium">
+                    <input type="email" required placeholder="OFFICIAL EMAIL ADDRESS" class="bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 font-medium">
+                    <input type="text" required placeholder="ORGANIZATION / CLAN TAG" class="bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 font-medium sm:col-span-2">
+                    <textarea required placeholder="OUTLINE YOUR SERVICE QUERY OR INQUIRY REQUIREMENT" rows="3" class="bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 font-medium sm:col-span-2 font-sans"></textarea>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-header font-black py-3 rounded uppercase tracking-wider text-xs shadow-md transition sm:col-span-2">DISPATCH PROTOCOL MESSAGE</button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <!-- Professional Structural Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-6 text-center text-xs text-gray-500 w-full">
-        <p>&copy; 2026 UV ESPORTS. Managed by UV ESPORTS. All Rights Reserved.</p>
+    <!-- Professional Integrated Unified Footer -->
+    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
+        <p class="font-header font-black text-sm tracking-wider text-gray-400 uppercase">UV ESPORTS</p>
+        <p class="text-[10px] uppercase font-gaming tracking-widest text-gray-600">Scrims &bull; Results &bull; Tournaments &bull; Brand Operations</p>
+        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. Managed by UV ESPORTS. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>
