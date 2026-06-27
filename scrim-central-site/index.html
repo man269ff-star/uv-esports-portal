@@ -18,18 +18,26 @@
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
 
-    <!-- Professional Navbar -->
+    <!-- Professional Fixed Navbar -->
     <nav class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="https://i.ibb.co/6wGZffm/uv-logo.png" alt="UV ESPORTS LOGO" class="h-9 w-auto object-contain bg-transparent">
+            <!-- Fixed Logo Identity from the custom logotype structure -->
+            <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
+                <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
+                    <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
+                    UV<span class="text-white font-medium">ESPORTS</span>
+                </span>
             </a>
-            <div class="hidden md:flex space-x-8 font-gaming text-sm tracking-widest text-gray-400">
+            
+            <!-- Guaranteed Navigation Links -->
+            <div class="flex space-x-6 sm:space-x-8 font-gaming text-xs sm:text-sm tracking-widest text-gray-400">
                 <a href="index.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Arena</a>
                 <a href="leaderboard.html" class="hover:text-white transition uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="hover:text-white transition uppercase font-bold">Register</a>
             </div>
-            <div class="flex items-center space-x-4">
+            
+            <!-- Quick Session Control -->
+            <div class="hidden sm:block">
                 <button onclick="alert('🔒 Dashboard Login is premium-protected.')" class="border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white text-xs font-header font-bold tracking-wider px-4 py-2.5 rounded transition">
                     SQUAD LOGIN
                 </button>
@@ -37,8 +45,9 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-12 space-y-12 w-full">
+    <!-- Main Dynamic Frame -->
+    <main class="max-w-7xl mx-auto px-6 py-12 space-y-12 w-full flex-grow">
+        <!-- Showcase Main Banner Container -->
         <div class="bg-gradient-to-br from-[#0f1117] via-[#0b0c10] to-black border border-gray-800 rounded-2xl p-8 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
             <div class="space-y-4 max-w-2xl z-10">
                 <span class="bg-red-500/10 border border-red-500/30 text-red-500 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full font-gaming">ESTD. 2024</span>
@@ -58,7 +67,7 @@
             </a>
         </div>
 
-        <!-- Impact Metrics -->
+        <!-- Metric Display Framework -->
         <div class="bg-gradient-to-r from-[#0b0d13] to-[#07080c] border border-gray-900 rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-xl">
             <div>
                 <div class="text-3xl font-black font-header text-red-500">50K+</div>
@@ -79,9 +88,9 @@
         </div>
     </main>
 
-    <!-- Professional Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-6 text-center text-xs text-gray-500 space-y-2 w-full">
-        <p>&copy; 2026 UV ESPORTS. Managed by Underdogs Ki Toli. All Rights Reserved.</p>
+    <!-- Professional Structural Footer -->
+    <footer class="border-t border-gray-900 bg-[#06070a] py-6 text-center text-xs text-gray-500 w-full">
+        <p>&copy; 2026 UV ESPORTS. Managed by UV ESPORTS. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
