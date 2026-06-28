@@ -37,23 +37,77 @@
     </header>
 
     <!-- Main Section -->
-    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-8">
-        <div class="border-l-4 border-red-500 pl-3">
-            <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Score Sheets</p>
-            <h2 class="text-2xl font-header font-black uppercase text-white">Match Results</h2>
-        </div>
+    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         
-        <div class="bg-[#0a0c10] border border-gray-800 rounded-xl p-8 text-center max-w-xl space-y-3">
-            <div class="text-3xl font-black font-header text-red-500 uppercase">Daily Scoreboards TBA</div>
-            <p class="text-sm text-gray-400 font-sans">Match summary posters, kill logs, and daily booyah tables will be updated immediately after the scrim lobbies wrap up.</p>
-            <div class="pt-2"><a href="leaderboard.html" class="inline-block border border-gray-700 hover:border-white text-gray-300 font-header text-xs px-6 py-3 rounded transition uppercase font-bold">Check Overall Standings</a></div>
+        <!-- Left Side: Basic Message -->
+        <div class="space-y-6">
+            <div class="border-l-4 border-red-500 pl-3">
+                <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Score Sheets</p>
+                <h2 class="text-2xl font-header font-black uppercase text-white">Match Results</h2>
+            </div>
+            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-6 space-y-3 font-sans">
+                <p class="text-base text-gray-300 font-bold">Daily Scoreboards TBA</p>
+                <p class="text-sm text-gray-400">Match summary posters, kill logs, and daily booyah tables will be updated immediately after the scrim lobbies wrap up.</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Automated Points Calculator -->
+        <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-6 shadow-2xl space-y-6">
+            <div class="border-b border-gray-900 pb-3">
+                <h3 class="text-base font-header font-black text-white uppercase tracking-wide">Scrim Score Calculator</h3>
+                <p class="text-[10px] uppercase font-gaming text-gray-500 mt-1">Official Organizer Tool</p>
+            </div>
+            
+            <div class="space-y-4 text-xs font-gaming">
+                <div>
+                    <label class="block text-gray-400 uppercase font-bold mb-1">Squad Name</label>
+                    <input type="text" id="calcSquad" placeholder="e.g., UVx4OPERATORS" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-400 uppercase font-bold mb-1">Placement Points</label>
+                        <input type="number" id="calcPlace" placeholder="e.g., 12" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 uppercase font-bold mb-1">Kill / Finish Points</label>
+                        <input type="number" id="calcKills" placeholder="e.g., 8" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                    </div>
+                </div>
+                
+                <button onclick="calculateTotalScore()" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-black py-3.5 rounded-xl uppercase tracking-wider text-xs transition">
+                    Compute Total Score
+                </button>
+
+                <!-- Display Box -->
+                <div id="calcResultBox" class="hidden bg-black/40 border border-gray-900 rounded-xl p-4 text-center font-header">
+                    <p class="text-gray-400 text-xs uppercase font-gaming font-bold">Calculated Score Output</p>
+                    <p id="calcOutputText" class="text-xl text-white mt-1 uppercase font-bold"></p>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
+    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 w-full">
         <p class="font-header font-black text-sm text-gray-400 uppercase">UV ESPORTS</p>
         <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. All Rights Reserved.</p>
     </footer>
+
+    <!-- Calculator Logic Script -->
+    <script>
+        function calculateTotalScore() {
+            const squad = document.getElementById('calcSquad').value || "UNKNOWN SQUAD";
+            const place = parseInt(document.getElementById('calcPlace').value) || 0;
+            const kills = parseInt(document.getElementById('calcKills').value) || 0;
+            
+            const total = place + kills;
+            
+            const resultBox = document.getElementById('calcResultBox');
+            const outputText = document.getElementById('calcOutputText');
+            
+            outputText.innerHTML = squad + ": <span class='text-red-500 text-2xl font-black'>" + total + "</span> Points";
+            resultBox.classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
