@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV ESPORTS | Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #050608; }
+        .font-gaming { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
+        .font-header { font-family: 'Orbitron', sans-serif; letter-spacing: 0.08em; }
+        .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
+    </style>
+</head>
+<body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
+                <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
+                    <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
+                    UV<span class="text-white font-medium">MANAGEMENT</span>
+                </span>
+            </a>
+            <div class="text-xs font-header font-black text-red-500 bg-red-500/10 border border-red-500/20 px-3 py-1.5 rounded uppercase tracking-wider">
+                🛡️ SECURE ADMIN SESSION
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Gate / Dashboard Control Frame -->
+    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-12">
+        
+        <!-- Welcome Title -->
+        <div class="border-l-4 border-red-500 pl-3">
+            <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Control Panel</p>
+            <h1 class="text-3xl font-black font-header text-white uppercase">UV Operations Desk</h1>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            
+            <!-- SECTION 1: LIVE SLOT LIST OVERRIDE -->
+            <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-6 shadow-2xl space-y-4">
+                <h3 class="text-base font-header font-black text-white uppercase tracking-wide border-b border-gray-900 pb-2">Modify Scrim Slots</h3>
+                
+                <div class="space-y-3 font-gaming text-xs">
+                    <div class="grid grid-cols-3 gap-2 items-center">
+                        <span class="text-red-500 font-header font-bold">SLOT 01:</span>
+                        <input type="text" id="slot1Input" value="UVx4OPERATORS" class="col-span-2 bg-black/50 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-red-500">
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 items-center">
+                        <span class="text-gray-400 font-header font-bold">SLOT 02:</span>
+                        <input type="text" id="slot2Input" value="TEAM INFERNO" class="col-span-2 bg-black/50 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-red-500">
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 items-center">
+                        <span class="text-gray-400 font-header font-bold">SLOT 03:</span>
+                        <input type="text" id="slot3Input" value="UNDERDOGS KI TOLI" class="col-span-2 bg-black/50 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-red-500">
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 items-center">
+                        <span class="text-gray-500 font-header font-bold">SLOT 04:</span>
+                        <input type="text" id="slot4Input" placeholder="VACANT SLOT" class="col-span-2 bg-black/50 border border-gray-800 rounded p-2 text-white focus:outline-none focus:border-red-500">
+                    </div>
+                    
+                    <button onclick="alert('⚡ Live Slots Updated Status Pushed to Database Local Log!')" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-black py-3 rounded-lg uppercase tracking-wider text-xs shadow-md transition mt-2">
+                        Update Live Slotlist
+                    </button>
+                </div>
+            </div>
+
+            <!-- SECTION 2: SCOREBOARD ENTRY CALCULATOR -->
+            <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-6 shadow-2xl space-y-4">
+                <h3 class="text-base font-header font-black text-white uppercase tracking-wide border-b border-gray-900 pb-2">Scrim Points Computer</h3>
+                
+                <div class="space-y-4 text-xs font-gaming">
+                    <div>
+                        <label class="block text-gray-400 uppercase font-bold mb-1">Squad Name</label>
+                        <input type="text" id="adminSquad" placeholder="e.g., UVx4OPERATORS" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-400 uppercase font-bold mb-1">Placement Points</label>
+                            <input type="number" id="adminPlace" placeholder="e.g., 12" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 uppercase font-bold mb-1">Kill / Finish Points</label>
+                            <input type="number" id="adminKills" placeholder="e.g., 8" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                        </div>
+                    </div>
+                    
+                    <button onclick="adminCalculateScore()" class="w-full border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white font-header font-black py-3 rounded-lg uppercase tracking-wider text-xs transition">
+                        Compute Points Output
+                    </button>
+
+                    <!-- Output Alert Block -->
+                    <div id="adminCalcResult" class="hidden bg-black/64 border border-gray-900 rounded-xl p-4 text-center font-header">
+                        <p class="text-gray-500 text-[10px] uppercase font-gaming font-bold">Calculation Log Ready</p>
+                        <p id="adminCalcText" class="text-base text-white mt-1 font-bold"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 bg-[#06070a] py-6 text-center text-xs text-gray-500 w-full">
+        <p>&copy; 2026 UV ESPORTS &bull; Secure Administrator Panel Frame.</p>
+    </footer>
+
+    <!-- Admin Scripts Panel Logic -->
+    <script>
+        function adminCalculateScore() {
+            const squad = document.getElementById('adminSquad').value || "UNKNOWN CLAN";
+            const place = parseInt(document.getElementById('adminPlace').value) || 0;
+            const kills = parseInt(document.getElementById('adminKills').value) || 0;
+            const total = place + kills;
+            
+            const box = document.getElementById('adminCalcResult');
+            const text = document.getElementById('adminCalcText');
+            
+            text.innerHTML = squad.toUpperCase() + ": Place (" + place + ") + Kills (" + kills + ") = <span class='text-red-500 font-black'>" + total + " Pts</span>";
+            box.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
