@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV ESPORTS | Official Directives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #050608; }
+        .font-gaming { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
+        .font-header { font-family: 'Orbitron', sans-serif; letter-spacing: 0.08em; }
+        .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0a0c10; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between relative">
+
+    <!-- GLOBAL MOBILE MENU OVERLAY -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-[#07080c] z-50 flex flex-col p-6 pt-24 space-y-8 overflow-y-auto w-full h-full">
+        <div class="flex justify-between items-center border-b border-gray-900 pb-4">
+            <span class="text-red-500 text-xl font-black tracking-wider font-header flex items-center gap-2">
+                <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-[10px] font-black italic">UV</span>
+                UV<span class="text-white font-medium">MENU</span>
+            </span>
+            <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-2 bg-gray-900/50 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-left font-header font-black tracking-widest text-base uppercase">
+            <a href="index" onclick="toggleMobileMenu()" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Home</a>
+            <a href="tournaments" onclick="toggleMobileMenu()" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Tournaments</a>
+            <a href="scrims" onclick="toggleMobileMenu()" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Scrims</a>
+            <a href="results" onclick="toggleMobileMenu()" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Results</a>
+            <a href="leaderboard" onclick="toggleMobileMenu()" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Leaderboard</a>
+            <a href="register" onclick="toggleMobileMenu()" class="bg-[#121622] border-l-4 border-red-500 p-4 text-white rounded-r-lg block">Register</a>
+        </nav>
+    </div>
+
+    <!-- CLEAN FIXED NAVBAR -->
+    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative">
+            <a href="index" class="flex items-center space-x-2 focus:outline-none">
+                <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
+                    <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
+                    UV<span class="text-white font-medium">ESPORTS</span>
+                </span>
+            </a>
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 font-gaming text-sm tracking-widest text-gray-400">
+                <a href="index" class="hover:text-white transition uppercase font-bold">Home</a>
+                <a href="tournaments" class="hover:text-white transition uppercase font-bold">Tournaments</a>
+                <a href="scrims" class="hover:text-white transition uppercase font-bold">Scrims</a>
+                <a href="results" class="hover:text-white transition uppercase font-bold">Results</a>
+                <a href="leaderboard" class="hover:text-white transition uppercase font-bold">Leaderboard</a>
+                <a href="register" class="hover:text-white transition uppercase font-bold">Register</a>
+            </nav>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-lg bg-gray-900/50">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="iconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-8 w-full flex-grow relative z-10">
+        <div class="border-l-4 border-red-500 pl-3">
+            <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Directives Matrix</p>
+            <h1 class="text-3xl font-black font-header text-white uppercase">Official Rulebook</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans text-xs text-gray-400">
+            <!-- Card 1: Structure -->
+            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-5 space-y-2">
+                <h4 class="font-bold text-red-500 font-header text-[11px] tracking-wider uppercase">🎮 Squad Layout & Structure</h4>
+                <p>Game Mode: Battle Royale Squad (4 active roster members)[cite: 1]. Squad limits allow a minimum of 4 up to a maximum of 6 players (including 2 substitutes managed strictly in between custom rounds)[cite: 1]. One designated captain per roster handles official desk communications[cite: 1].</p>
+            </div>
+
+            <!-- Card 2: Eligibility -->
+            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-5 space-y-2">
+                <h4 class="font-bold text-gray-200 font-header text-[11px] tracking-wider uppercase">📋 Eligibility & Ranks</h4>
+                <p>All participants must prove Indian Nationality using valid legal identification documents (Aadhar Card, Passport, Student ID, or Driving License)[cite: 1]. Competing profiles require a minimum age of 16 years, profile Level 40+, and Platinum tier rank standard[cite: 1]. Team names cannot be changed post-registration[cite: 1].</p>
+            </div><!-- Card 3: Lobby Settings -->
+            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-5 space-y-2">
+                <h4 class="font-bold text-gray-200 font-header text-[11px] tracking-wider uppercase">🔧 Official Lobby Configurations</h4>
+                <ul class="list-disc pl-4 space-y-1 text-gray-400">
+                    <li>Gun Attributes: <span class="text-red-500 font-bold">OFF</span> &bull; Revival System: <span class="text-green-500 font-bold">ON</span>[cite: 1]</li>
+                    <li>In-game Mission: <span class="text-green-500 font-bold">ON</span> &bull; In-match Quest: <span class="text-red-500 font-bold">OFF</span>[cite: 1]</li>
+                    <li>High-tier Loot Zone: <span class="text-red-500 font-bold">OFF</span> &bull; Death Cam: <span class="text-green-500 font-bold">ON</span>[cite: 1]</li>
+                    <li>Standardized costume for opponents active[cite: 1]. Elimination feed and nicknames hidden[cite: 1]. Map pool: Bermuda, Kalahari, Purgatory[cite: 1].</li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Hardware & Fairness -->
+            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-5 space-y-2">
+                <h4 class="font-bold text-red-500 font-header text-[11px] tracking-wider uppercase">🚫 Anti-Cheat & Fair Play</h4>
+                <p>Mobile/Tablet hardware ONLY (Emulators strictly illegal)[cite: 1]. POV verification must use external capture apps; in-game recorder is prohibited[cite: 1]. Zero tolerance for teaming, exploits, macro edits, ringing, or toxic language[cite: 1]. Violators risk points deduction or direct disqualification[cite: 1].</p>
+            </div>
+        </div>
+
+        <!-- Communications Banner -->
+        <div class="bg-purple-950/20 border border-purple-900/40 rounded-xl p-5 text-center font-gaming">
+            <h4 class="text-purple-400 text-sm font-bold uppercase tracking-wider mb-1">💬 Primary Network Comms Server</h4>
+            <p class="text-xs text-gray-400">The main communication grid is handled via <span class="text-white font-bold">DISCORD</span>[cite: 1]. Every registered team player must reside inside the official event channels[cite: 1]. UV administration preserves full rights to modify rule layers to ensure fair sportsmanship execution[cite: 1].</p>
+        </div>
+    </main>
+
+    <!-- FOOTER ARCHITECTURE -->
+    <footer class="border-t border-gray-950 bg-[#030406] py-6 px-6 w-full relative z-10 text-center">
+        <p class="text-[9px] tracking-widest font-header text-gray-600 uppercase">&copy; 2026 UV ESPORTS &bull; POWERED BY UNDERDOGS KI TOLI</p>
+    </footer>
+
+    <script>
+        let menuOpen = false;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const iconPath = document.getElementById('iconPath');
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                menu.classList.remove('hidden');
+                iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
