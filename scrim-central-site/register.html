@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UV ESPORTS | Rules & Registration</title>
+    <title>UV ESPORTS | Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght=600;700;800&family=Space+Grotesk:wght=500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght pipe;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Space Grotesk', sans-serif; background-color: #050608; }
         .font-gaming { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
         .font-header { font-family: 'Orbitron', sans-serif; letter-spacing: 0.08em; }
         .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #0a0c10; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
     </style>
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between relative">
@@ -41,7 +38,7 @@
         </nav>
     </div>
 
-    <!-- NAVBAR Header -->
+    <!-- CLEAN FIXED NAVBAR -->
     <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center relative">
             <a href="index" class="flex items-center space-x-2 focus:outline-none">
@@ -67,64 +64,50 @@
     </header>
 
     <!-- Main Workspace -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 space-y-12 w-full flex-grow relative z-10">
+    <main class="max-w-md mx-auto px-4 py-16 w-full flex-grow flex flex-col justify-center relative z-10">
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            
-            <!-- LEFT COLUMN: OFFICIAL TOURNAMENT RULEBOOK DATA -->
-            <div class="space-y-6">
-                <div class="border-l-4 border-red-500 pl-3">
-                    <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Directives Matrix</p>
-                    <h1 class="text-3xl font-black font-header text-white uppercase">Official Rulebook</h1>
-                </div>
-                
-                <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-6 space-y-5 font-sans text-xs leading-relaxed text-gray-400 max-h-[460px] overflow-y-auto custom-scrollbar">
-                    <div>
-                        <h4 class="font-bold text-red-500 font-header text-[11px] tracking-wider uppercase mb-1">🎮 Tournament Structure & Size</h4>
-                        <p>Game Mode: Battle Royale - Squad (4 players per team)[cite: 1]. Each team must maintain a minimum of 4 to a maximum of 6 players[cite: 1]. Up to 2 substitutes are allowed and need to be registered in the roster, but substitutions are only allowed in between matches[cite: 1]. One designated captain per team will be responsible for communication[cite: 1].</p>
-                    </div>
-                    
-                    <div class="border-t border-gray-900/60 pt-3">
-                        <h4 class="font-bold text-gray-200 font-header text-[11px] tracking-wider uppercase mb-1">📋 Eligibility Restrictions</h4>
-                        <p>Players must be Indian Nationals to participate[cite: 1]. To prove lawful nationality, a player must present a valid ID document (Student ID Card, Passport, Aadhar Card, or Driving License)[cite: 1]. All players must be at least 16 years of age[cite: 1], level 40+, and Platinum rank minimum[cite: 1]. Team names cannot be changed after registering[cite: 1]. Primary communication is strictly handled via DISCORD[cite: 1].</p>
-                    </div>
-                    
-                    <div class="border-t border-gray-900/60 pt-3">
-                        <h4 class="font-bold text-gray-200 font-header text-[11px] tracking-wider uppercase mb-1">🔧 Official Room Game Settings</h4>
-                        <ul class="list-disc pl-4 space-y-1 text-[11px]">
-                            <li>Gun Attributes: <span class="text-red-500 font-bold">OFF</span> &bull; Revival System: <span class="text-green-500 font-bold">ON</span>[cite: 1]</li>
-                            <li>In-game Mission: <span class="text-green-500 font-bold">ON</span> &bull; In-match Quest: <span class="text-red-500 font-bold">OFF</span>[cite: 1]</li>
-                            <li>High-tier Loot Zone: <span class="text-red-500 font-bold">OFF</span> &bull; Death Cam: <span class="text-green-500 font-bold">ON</span>[cite: 1]</li>
-                            <li>Standardized costume for opponents active. Nicknames and elimination feeds hidden. Loadouts are allowed[cite: 1]. Maps used: Bermuda, Kalahari, Purgatory (decided randomly)[cite: 1].</li>
-                        </ul>
-                    </div>
-
-                    <div class="border-t border-gray-900/60 pt-3">
-                        <h4 class="font-bold text-gray-200 font-header text-[11px] tracking-wider uppercase mb-1">⚠️ Disconnection & Delay Faults</h4>
-                        <p>Participants are not allowed to intentionally cause a disconnection during a game[cite: 1]. Remake or match restart is considered only under server failure or if 10 or more players disconnect simultaneously due to network issues[cite: 1]. If a team is not ready within 10 minutes of the scheduled time, they forfeit the match[cite: 1].</p>
-                    </div>
-
-                    <div class="border-t border-gray-900/60 pt-3">
-                        <h4 class="font-bold text-red-500 font-header text-[11px] tracking-wider uppercase mb-1">🚫 Serious Offenses & Penalties</h4>
-                        <p>Only mobile devices are permitted (no emulators)[cite: 1]. Screen recording must be done on mobile or external software; use of the in-game POV recorder is prohibited[cite: 1]. Zero tolerance for teaming, exploiting bugs/glitches, ringing, bribery, gambling, or vulgar/hateful language[cite: 1]. Violations draw warnings, point deductions, or direct tournament disqualification with prize money asset forfeit[cite: 1]. UV reserves the right to amend rules to ensure fair competition[cite: 1].</p>
-                    </div>
-                </div>
+        <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-8 shadow-2xl space-y-6">
+            <div class="text-center">
+                <h2 class="text-xl font-header font-black uppercase text-white tracking-wide">Team Registration</h2>
+                <p class="text-[10px] uppercase font-gaming tracking-wider text-gray-500 pt-1">Managed by Underdogs Ki Toli</p>
             </div>
-
-            <!-- RIGHT COLUMN: INTERACTIVE POINT CALCULATOR PANEL -->
-            <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-8 shadow-2xl space-y-6 h-max">
-                <div class="border-l-4 border-purple-500 pl-3">
-                    <p class="text-xs font-gaming text-purple-400 uppercase tracking-widest font-bold">Operational Desk Utility</p>
-                    <h2 class="text-lg font-header font-black uppercase text-white tracking-wide">Scorers Point Calculator</h2>
+            
+            <form onsubmit="event.preventDefault(); alert('🔥 Clan Roster submitted successfully! Check Discord/WhatsApp channels for slots.');" class="space-y-4 text-xs font-gaming">
+                <div>
+                    <label class="block text-gray-400 uppercase font-bold mb-1">Squad / Clan Name</label>
+                    <input type="text" required placeholder="e.g., UVx4OPERATORS" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
                 </div>
-                
-                <div class="space-y-4 font-gaming text-xs">
-                    <div class="space-y-1">
-                        <label class="block text-gray-400 font-bold uppercase tracking-wider">Placement Rank</label>
-                        <select id="calcRank" class="w-full bg-black border border-gray-800 text-white p-3 rounded focus:outline-none focus:border-purple-500 text-sm font-bold tracking-wider">
-                            <option value="12">1st Place (Booyah) [12 Pts]</option>
-                            <option value="9">2nd Place [9 Pts]</option>
-                            <option value="8">3rd Place [8 Pts]</option>
-                            <option value="7">4th Place [7 Pts]</option>
-                            <option value="6">5th Place [6 Pts]</option>
-                            <option value="5">6thNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
+                <div>
+                    <label class="block text-gray-400 uppercase font-bold mb-1">Leader WhatsApp Number</label>
+                    <input type="tel" required placeholder="10 Digit Number" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
+                </div>
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-black py-4 rounded-xl uppercase tracking-wider text-xs shadow-md transition">Submit Team Details</button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- FOOTER ARCHITECTURE -->
+    <footer class="border-t border-gray-950 bg-[#030406] py-6 px-6 w-full relative z-10 text-center">
+        <p class="text-[9px] tracking-widest font-header text-gray-600 uppercase">&copy; 2026 UV ESPORTS &bull; POWERED BY UNDERDOGS KI TOLI</p>
+    </footer>
+
+    <script>
+        let menuOpen = false;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const iconPath = document.getElementById('iconPath');
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                menu.classList.remove('hidden');
+                iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
