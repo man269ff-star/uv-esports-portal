@@ -7,39 +7,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050608; color: #fff; font-family: sans-serif; }
-        .card-bg { background-color: #0a0c10; border: 1px solid #1f2937; }
+        .glass-card { background: rgba(10, 12, 16, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
     </style>
 </head>
 <body class="p-4 md:p-10">
 
     <div class="max-w-5xl mx-auto">
-        <div class="mb-8 border-l-4 border-red-600 pl-4">
-            <h1 class="text-3xl font-bold uppercase tracking-wider">T3 PRO SCRIMS</h1>
-            <p class="text-gray-400 text-sm">Overall Live Standings</p>
+        <div class="mb-8 flex justify-between items-end border-l-4 border-red-600 pl-4">
+            <div>
+                <h1 class="text-3xl font-bold uppercase tracking-wider">T3 PRO SCRIMS</h1>
+                <p class="text-gray-400 text-sm">Overall Live Standings</p>
+            </div>
+            <!-- LIVE INDICATOR -->
+            <div class="flex items-center gap-2 bg-black/50 px-3 py-1 rounded-full border border-green-900/50">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-[10px] text-green-500 font-bold uppercase">Live Data</span>
+            </div>
         </div>
 
         <!-- PODIUM SECTION -->
-        <div id="podium" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-            <!-- Data load hoga -->
-        </div>
+        <div id="podium" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"></div>
 
         <!-- TABLE SECTION -->
-        <div class="card-bg rounded-xl overflow-hidden shadow-xl">
+        <div class="glass-card rounded-xl overflow-hidden shadow-xl">
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-xs uppercase">
-                    <thead class="bg-[#111319] text-gray-400">
+                    <thead class="bg-black/40 text-gray-400">
                         <tr>
-                            <th class="p-4">RK</th>
-                            <th class="p-4">Team Name</th>
+                            <th class="p-4">Rank</th>
+                            <th class="p-4">Team</th>
                             <th class="p-4 text-center">MP</th>
                             <th class="p-4 text-center">KP</th>
                             <th class="p-4 text-center">W</th>
-                            <th class="p-4 text-center text-red-500">Pts</th>
+                            <th class="p-4 text-center text-red-500">Points</th>
                         </tr>
                     </thead>
-                    <tbody id="table-body" class="divide-y divide-gray-800 text-white">
-                        <!-- Data load hoga -->
-                    </tbody>
+                    <tbody id="table-body" class="divide-y divide-white/5 text-white"></tbody>
                 </table>
             </div>
         </div>
@@ -53,33 +59,34 @@
             .then(data => {
                 const rows = data.split('\n').filter(row => row.trim() !== '').slice(1);
                 
-                // Podium Logic
+                // Podium Logic (Expects: Rank, TeamName, LogoURL, MP, KP, W, Pts)
                 const top3 = rows.slice(0, 3);
                 const podiumDiv = document.getElementById('podium');
                 top3.forEach((row, index) => {
                     const cols = row.split(',');
                     podiumDiv.innerHTML += `
-                        <div class="card-bg p-4 rounded-xl border-t-4 border-red-600 text-center">
-                            <div class="text-2xl font-black text-gray-600">0${index + 1}</div>
-                            <div class="font-bold text-lg truncate">${cols[1]}</div>
-                            <div class="text-red-500 font-bold text-xl">${cols[5]} PTS</div>
+                        <div class="glass-card p-6 rounded-xl border-t-4 border-red-600 text-center flex flex-col items-center">
+                            <img src="${cols[2]}" class="w-16 h-16 rounded-full mb-3 border-2 border-red-900">
+                            <div class="font-bold text-lg">${cols[1]}</div>
+                            <div class="text-red-500 font-black text-2xl">${cols[6]} Pts</div>
                         </div>
                     `;
                 });
 
                 // Table Logic
                 const tableBody = document.getElementById('table-body');
-                const rest = rows.slice(3);
-                rest.forEach(row => {
+                rows.slice(3).forEach(row => {
                     const cols = row.split(',');
                     tableBody.innerHTML += `
-                        <tr class="hover:bg-gray-900/50">
+                        <tr class="hover:bg-white/5 transition">
                             <td class="p-4 font-bold">${cols[0]}</td>
-                            <td class="p-4 font-bold">${cols[1]}</td>
-                            <td class="p-4 text-center">${cols[2]}</td>
+                            <td class="p-4 flex items-center gap-3 font-bold">
+                                <img src="${cols[2]}" class="w-6 h-6 rounded-full"> ${cols[1]}
+                            </td>
                             <td class="p-4 text-center">${cols[3]}</td>
                             <td class="p-4 text-center">${cols[4]}</td>
-                            <td class="p-4 text-center font-bold text-red-500">${cols[5]}</td>
+                            <td class="p-4 text-center">${cols[5]}</td>
+                            <td class="p-4 text-center font-black text-red-500">${cols[6]}</td>
                         </tr>
                     `;
                 });
