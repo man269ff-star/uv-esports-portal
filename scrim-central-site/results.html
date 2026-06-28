@@ -62,6 +62,29 @@
                             <td class="p-4 text-center font-bold text-blue-500">56</td>
                         </tr>
                     </tbody>
+                    <script>
+    // Apni published CSV link yahan daalo
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT9URLV1svEykn17Ehr90HfUr0NxNiXfMoy81-c1Mj94IkSs8Z8hIrnc9Kr5ezXM08VHAcey9N9u-Yh/pub?output=csv';
+
+    fetch(sheetUrl)
+        .then(res => res.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1);
+            let html = '';
+            rows.forEach(row => {
+                const cols = row.split(',');
+                html += `<tr>
+                    <td class="p-4 font-bold">${cols[0]}</td>
+                    <td class="p-4 font-bold">${cols[1]}</td>
+                    <td class="p-4 text-center">${cols[2]}</td>
+                    <td class="p-4 text-center">${cols[3]}</td>
+                    <td class="p-4 text-center">${cols[4]}</td>
+                    <td class="p-4 text-center font-bold text-blue-500">${cols[5]}</td>
+                </tr>`;
+            });
+            document.querySelector('tbody').innerHTML = html;
+        });
+</script>
                 </table>
             </div>
         </div>
