@@ -13,11 +13,34 @@
         .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
     </style>
 </head>
-<body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
+<body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between relative">
 
-    <!-- Header Navigation -->
-    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- GLOBAL MOBILE MENU OVERLAY -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-[#07080c] z-50 flex flex-col p-6 pt-24 space-y-8 overflow-y-auto w-full h-full">
+        <div class="flex justify-between items-center border-b border-gray-900 pb-4">
+            <span class="text-red-500 text-xl font-black tracking-wider font-header flex items-center gap-2">
+                <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-[10px] font-black italic">UV</span>
+                UV<span class="text-white font-medium">MENU</span>
+            </span>
+            <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-2 bg-gray-900/50 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-left font-header font-black tracking-widest text-base uppercase">
+            <a href="index.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Home</a>
+            <a href="tournaments.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Tournaments</a>
+            <a href="scrims.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Scrims</a>
+            <a href="results.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Results</a>
+            <a href="leaderboard.html" class="bg-[#121622] border-l-4 border-red-500 p-4 text-white rounded-r-lg block">Leaderboard</a>
+            <a href="register.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Register</a>
+        </nav>
+    </div>
+
+    <!-- CLEAN FIXED NAVBAR -->
+    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative">
             <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
                 <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
                     <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
@@ -32,67 +55,49 @@
                 <a href="leaderboard.html" class="text-white border-b-2 border-red-500 pb-1 uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="hover:text-white transition uppercase font-bold">Register</a>
             </nav>
-            <div><a href="register.html" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs px-5 py-2.5 rounded transition">REGISTER NOW</a></div>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-lg bg-gray-900/50">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="iconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- Leaderboard Core Table Section -->
-    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-8">
-        <div class="border-l-4 border-red-500 pl-3">
-            <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Live Standings</p>
-            <h2 class="text-2xl font-header font-black uppercase text-white">Overall Standings</h2>
-        </div>
-
-        <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-hidden shadow-2xl">
-            <table class="w-full text-left border-collapse">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full flex-grow space-y-8 relative z-10">
+        <div class="border-l-4 border-red-500 pl-3"><p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Live Standings</p><h2 class="text-2xl font-header font-black uppercase text-white">Overall Standings</h2></div>
+        <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-x-auto shadow-2xl">
+            <table class="w-full text-left border-collapse min-w-[600px]">
                 <thead>
-                    <tr class="bg-[#111319] border-b border-gray-800 text-xs font-header font-black uppercase tracking-wider text-gray-400">
-                        <th class="px-6 py-4">Rank</th>
-                        <th class="px-6 py-4">Squad Name</th>
-                        <th class="px-6 py-4 text-center">Matches</th>
-                        <th class="px-6 py-4 text-center">Booyah!</th>
-                        <th class="px-6 py-4 text-center">Place Pts</th>
-                        <th class="px-6 py-4 text-center">Kill Pts</th>
-                        <th class="px-6 py-4 text-center text-red-500">Total Points</th>
-                    </tr>
+                    <tr class="bg-[#111319] border-b border-gray-800 text-xs font-header font-black uppercase tracking-wider text-gray-400"><th class="px-6 py-4">Rank</th><th class="px-6 py-4">Squad Name</th><th class="px-6 py-4 text-center">Matches</th><th class="px-6 py-4 text-center">Booyah!</th><th class="px-6 py-4 text-center">Place Pts</th><th class="px-6 py-4 text-center">Kill Pts</th><th class="px-6 py-4 text-center text-red-500">Total Points</th></tr>
                 </thead>
                 <tbody class="divide-y divide-gray-900 text-base font-bold font-gaming">
-                    <tr class="hover:bg-gray-900/40 transition">
-                        <td class="px-6 py-4 font-header font-black text-xl text-yellow-500"># 01</td>
-                        <td class="px-6 py-4 text-white text-lg font-header tracking-wide">UVx4OPERATORS</td>
-                        <td class="px-6 py-4 text-center text-gray-300">05</td>
-                        <td class="px-6 py-4 text-center text-green-400 text-lg">03</td>
-                        <td class="px-6 py-4 text-center text-gray-400">45</td>
-                        <td class="px-6 py-4 text-center text-gray-400">38</td>
-                        <td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">83</td>
-                    </tr>
-                    <tr class="hover:bg-gray-900/40 transition">
-                        <td class="px-6 py-4 font-header font-black text-xl text-gray-400"># 02</td>
-                        <td class="px-6 py-4 text-white text-lg font-header tracking-wide">TEAM INFERNO</td>
-                        <td class="px-6 py-4 text-center text-gray-300">05</td>
-                        <td class="px-6 py-4 text-center text-green-400 text-lg">01</td>
-                        <td class="px-6 py-4 text-center text-gray-400">32</td>
-                        <td class="px-6 py-4 text-center text-gray-400">26</td>
-                        <td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">58</td>
-                    </tr>
-                    <tr class="hover:bg-gray-900/40 transition">
-                        <td class="px-6 py-4 font-header font-black text-xl text-amber-700"># 03</td>
-                        <td class="px-6 py-4 text-white text-lg font-header tracking-wide">UNDERDOGS KI TOLI</td>
-                        <td class="px-6 py-4 text-center text-gray-300">05</td>
-                        <td class="px-6 py-4 text-center text-gray-600 text-lg">01</td>
-                        <td class="px-6 py-4 text-center text-gray-400">20</td>
-                        <td class="px-6 py-4 text-center text-gray-400">22</td>
-                        <td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">42</td>
-                    </tr>
+                    <tr class="hover:bg-gray-900/40 transition"><td class="px-6 py-4 font-header font-black text-xl text-yellow-500"># 01</td><td class="px-6 py-4 text-white text-lg font-header tracking-wide">UVx4OPERATORS</td><td class="px-6 py-4 text-center text-gray-300">05</td><td class="px-6 py-4 text-center text-green-400 text-lg">03</td><td class="px-6 py-4 text-center text-gray-400">45</td><td class="px-6 py-4 text-center text-gray-400">38</td><td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">83</td></tr>
+                    <tr class="hover:bg-gray-900/40 transition"><td class="px-6 py-4 font-header font-black text-xl text-gray-400"># 02</td><td class="px-6 py-4 text-white text-lg font-header tracking-wide">TEAM INFERNO</td><td class="px-6 py-4 text-center text-gray-300">05</td><td class="px-6 py-4 text-center text-green-400 text-lg">01</td><td class="px-6 py-4 text-center text-gray-400">32</td><td class="px-6 py-4 text-center text-gray-400">26</td><td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">58</td></tr>
+                    <tr class="hover:bg-gray-900/40 transition"><td class="px-6 py-4 font-header font-black text-xl text-amber-700"># 03</td><td class="px-6 py-4 text-white text-lg font-header tracking-wide">UNDERDOGS KI TOLI</td><td class="px-6 py-4 text-center text-gray-300">05</td><td class="px-6 py-4 text-center text-gray-600 text-lg">01</td><td class="px-6 py-4 text-center text-gray-400">20</td><td class="px-6 py-4 text-center text-gray-400">22</td><td class="px-6 py-4 text-center font-header font-black text-red-500 text-2xl">42</td></tr>
                 </tbody>
             </table>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
-        <p class="font-header font-black text-sm text-gray-400 uppercase">UV ESPORTS</p>
-        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. All Rights Reserved.</p>
+    ). All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let menuOpen = false;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const iconPath = document.getElementById('iconPath');
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                menu.classList.remove('hidden');
+                iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
 </body>
 </html>
