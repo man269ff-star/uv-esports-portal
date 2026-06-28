@@ -3,45 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UV ESPORTS | Daily Results</title>
+    <title>UV ESPORTS | Standings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050608; color: white; font-family: sans-serif; }
-        .card-bg { background-color: #0a0c10; border: 1px solid #1f2937; }
+        body { background-color: #050608; color: #a1a1aa; font-family: sans-serif; }
+        .result-card { background-color: #0a0c10; border: 1px solid #1f2937; }
     </style>
 </head>
 <body class="p-4 md:p-10">
 
-    <!-- Header -->
-    <div class="max-w-4xl mx-auto mb-8 border-l-4 border-red-600 pl-4">
-        <h1 class="text-3xl font-bold uppercase">Daily Results</h1>
-        <p class="text-gray-400">View latest tournament and scrim standings.</p>
-    </div>
-
-    <!-- Results Container -->
-    <main class="max-w-4xl mx-auto">
-        
-        <!-- Single Match Result Card -->
-        <div class="card-bg rounded-xl p-6 shadow-lg">
-            <div class="flex justify-between items-center mb-4">
-                <div>
-                    <h2 class="text-xl font-bold text-red-500">Comeback Cup - Grand Finals</h2>
-                    <span class="text-xs text-gray-500 uppercase tracking-widest">Date: 28 June 2026</span>
-                </div>
-                <span class="bg-red-900/30 text-red-500 px-3 py-1 rounded text-xs font-bold">COMPLETED</span>
-            </div>
-            
-            <div class="rounded-lg overflow-hidden border border-gray-800 mb-4">
-                <img src="result1.jpg" alt="Match Result" class="w-full h-auto" onerror="this.src='https://placehold.co/800x400?text=Result+Image+Pending'">
-            </div>
-            
-            <!-- Download Button -->
-            <a href="result1.jpg" download="Comeback_Cup_Results.jpg" class="block text-center w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded transition">
-                Download Result
-            </a>
+    <div class="max-w-5xl mx-auto">
+        <!-- Match Header -->
+        <div class="mb-6 border-l-4 border-blue-600 pl-4">
+            <h1 class="text-2xl font-bold text-white uppercase">T3 PRO SCRIMS</h1>
+            <p class="text-blue-500 font-bold uppercase text-xs">Overall Standings</p>
         </div>
 
-    </main>
+        <!-- Standings Table -->
+        <div class="result-card rounded-xl overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs uppercase">
+                    <thead class="bg-[#111319] text-gray-400">
+                        <tr>
+                            <th class="p-4">RK</th>
+                            <th class="p-4">Team Name</th>
+                            <th class="p-4 text-center">MP</th>
+                            <th class="p-4 text-center">KP</th>
+                            <th class="p-4 text-center">W</th>
+                            <th class="p-4 text-center text-blue-500">Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800 text-white">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-gray-900/50">
+                            <td class="p-4 font-bold">01</td>
+                            <td class="p-4 font-bold">GENERATIONAL R...</td>
+                            <td class="p-4 text-center">3</td>
+                            <td class="p-4 text-center">48</td>
+                            <td class="p-4 text-center">1</td>
+                            <td class="p-4 text-center font-bold text-blue-500">74</td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-gray-900/50">
+                            <td class="p-4 font-bold">02</td>
+                            <td class="p-4 font-bold">MULTIVERSE X</td>
+                            <td class="p-4 text-center">3</td>
+                            <td class="p-4 text-center">39</td>
+                            <td class="p-4 text-center">1</td>
+                            <td class="p-4 text-center font-bold text-blue-500">62</td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-gray-900/50">
+                            <td class="p-4 font-bold">03</td>
+                            <td class="p-4 font-bold">SHOWMANS ESP</td>
+                            <td class="p-4 text-center">3</td>
+                            <td class="p-4 text-center">29</td>
+                            <td class="p-4 text-center">0</td>
+                            <td class="p-4 text-center font-bold text-blue-500">56</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
