@@ -13,11 +13,34 @@
         .premium-gradient { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.12), transparent 50%), radial-gradient(circle at bottom left, rgba(17, 24, 39, 0.85), #050608); }
     </style>
 </head>
-<body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
+<body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between relative">
 
-    <!-- Header Navigation -->
-    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <!-- GLOBAL MOBILE MENU OVERLAY -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-[#07080c] z-50 flex flex-col p-6 pt-24 space-y-8 overflow-y-auto w-full h-full">
+        <div class="flex justify-between items-center border-b border-gray-900 pb-4">
+            <span class="text-red-500 text-xl font-black tracking-wider font-header flex items-center gap-2">
+                <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-[10px] font-black italic">UV</span>
+                UV<span class="text-white font-medium">MENU</span>
+            </span>
+            <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-2 bg-gray-900/50 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4 text-left font-header font-black tracking-widest text-base uppercase">
+            <a href="index.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Home</a>
+            <a href="tournaments.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Tournaments</a>
+            <a href="scrims.html" class="bg-[#121622] border-l-4 border-red-500 p-4 text-white rounded-r-lg block">Scrims</a>
+            <a href="results.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Results</a>
+            <a href="leaderboard.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Leaderboard</a>
+            <a href="register.html" class="bg-[#121622]/40 border-l-4 border-transparent p-4 text-gray-200 hover:text-white hover:border-red-500 rounded-r-lg block transition">Register</a>
+        </nav>
+    </div>
+
+    <!-- CLEAN FIXED NAVBAR -->
+    <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative">
             <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
                 <span class="text-red-500 text-2xl font-black tracking-wider font-header flex items-center gap-2">
                     <span class="text-white bg-gradient-to-r from-purple-600 to-pink-500 px-2 py-0.5 rounded text-xs font-black italic">UV</span>
@@ -32,92 +55,61 @@
                 <a href="leaderboard.html" class="hover:text-white transition uppercase font-bold">Leaderboard</a>
                 <a href="register.html" class="hover:text-white transition uppercase font-bold">Register</a>
             </nav>
-            <div><a href="register.html" class="bg-red-600 hover:bg-red-700 text-white font-bold font-header text-xs px-5 py-2.5 rounded transition">REGISTER NOW</a></div>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-400 hover:text-white focus:outline-none p-2 rounded-lg bg-gray-900/50">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="iconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- Main Section -->
-    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full flex-grow space-y-12 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            <!-- Left Side: Scrim Info -->
             <div class="lg:col-span-1 space-y-6">
-                <div class="border-l-4 border-red-500 pl-3">
-                    <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Daily Rooms</p>
-                    <h2 class="text-2xl font-header font-black uppercase text-white">Scrim Schedules</h2>
-                </div>
-                
+                <div class="border-l-4 border-red-500 pl-3"><p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Daily Rooms</p><h2 class="text-2xl font-header font-black uppercase text-white">Scrim Schedules</h2></div>
                 <div class="bg-[#0a0c10] border border-gray-800 rounded-xl p-6 space-y-4">
-                    <div class="flex items-center justify-between border-b border-gray-900 pb-3">
-                        <h3 class="text-base font-header font-bold text-white uppercase">Daily Elite Practice</h3>
-                        <span class="text-xs bg-green-600/10 border border-green-500/30 text-green-400 px-2.5 py-0.5 rounded font-bold font-gaming">ACTIVE</span>
-                    </div>
+                    <div class="flex items-center justify-between border-b border-gray-900 pb-3"><h3 class="text-base font-header font-bold text-white uppercase">Daily Elite Practice</h3><span class="text-xs bg-green-600/10 border border-green-500/30 text-green-400 px-2.5 py-0.5 rounded font-bold font-gaming">ACTIVE</span></div>
                     <div class="grid grid-cols-1 gap-2 text-xs font-gaming text-gray-400">
                         <div>🗓️ DAYS: <span class="text-white font-bold">DAILY ROOMS</span></div>
                         <div>🎮 GAME: <span class="text-white font-bold">FREE FIRE MAX</span></div>
                         <div>👥 GROUPS: <span class="text-white font-bold">TIER 1 & UNDERDOGS</span></div>
                     </div>
-                    <a href="register.html" class="block text-center bg-red-600 hover:bg-red-700 text-white text-xs font-header font-bold tracking-wider py-3 rounded-lg transition uppercase">Book Your Practice Slot</a>
                 </div>
             </div>
-
-            <!-- Right Side: Real-Time Slot List Table -->
             <div class="lg:col-span-2 space-y-4">
-                <div class="border-l-4 border-gray-800 pl-3">
-                    <p class="text-xs font-gaming text-gray-400 uppercase tracking-widest font-bold">Live Verification</p>
-                    <h2 class="text-xl font-header font-black uppercase text-white">Official Slot List</h2>
-                </div>
-
+                <div class="border-l-4 border-gray-800 pl-3"><p class="text-xs font-gaming text-gray-400 uppercase tracking-widest font-bold">Live Verification</p><h2 class="text-xl font-header font-black uppercase text-white">Official Slot List</h2></div>
                 <div class="bg-[#0a0c10] border border-gray-800 rounded-xl overflow-hidden shadow-xl">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 p-4 gap-3 bg-[#111319] border-b border-gray-900 text-xs font-header font-bold text-gray-400">
-                        <div>SLOT / SQUAD</div>
-                        <div class="hidden sm:block text-right">STATUS</div>
-                    </div>
-                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 p-4 gap-3 bg-[#111319] border-b border-gray-900 text-xs font-header font-bold text-gray-400"><div>SLOT / SQUAD</div><div class="hidden sm:block text-right">STATUS</div></div>
                     <div class="divide-y divide-gray-900 font-gaming font-bold text-sm">
-                        <!-- Slot 1 -->
-                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition">
-                            <div class="flex items-center space-x-3">
-                                <span class="font-header text-red-500 text-xs bg-red-500/10 px-2 py-1 rounded border border-red-500/20">SLOT 01</span>
-                                <span class="text-white text-base tracking-wide uppercase">UVx4OPERATORS</span>
-                            </div>
-                            <span class="text-xs text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase font-header">RESERVED</span>
-                        </div>
-                        <!-- Slot 2 -->
-                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition">
-                            <div class="flex items-center space-x-3">
-                                <span class="font-header text-gray-400 text-xs bg-gray-800 px-2 py-1 rounded">SLOT 02</span>
-                                <span class="text-gray-300 text-base tracking-wide uppercase">TEAM INFERNO</span>
-                            </div>
-                            <span class="text-xs text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase font-header">RESERVED</span>
-                        </div>
-                        <!-- Slot 3 -->
-                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition">
-                            <div class="flex items-center space-x-3">
-                                <span class="font-header text-gray-400 text-xs bg-gray-800 px-2 py-1 rounded">SLOT 03</span>
-                                <span class="text-gray-300 text-base tracking-wide uppercase">UNDERDOGS KI TOLI</span>
-                            </div>
-                            <span class="text-xs text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase font-header">RESERVED</span>
-                        </div>
-                        <!-- Slot 4 -->
-                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition">
-                            <div class="flex items-center space-x-3">
-                                <span class="font-header text-gray-600 text-xs bg-black px-2 py-1 rounded">SLOT 04</span>
-                                <span class="text-gray-600 tracking-wide uppercase italic">VACANT SLOT</span>
-                            </div>
-                            <span class="text-xs text-green-400 bg-green-400/10 border border-green-500/20 px-2 py-0.5 rounded uppercase font-header">AVAILABLE</span>
-                        </div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition"><div class="flex items-center space-x-3"><span class="font-header text-red-500 text-xs bg-red-500/10 px-2 py-1 rounded border border-red-500/20">SLOT 01</span><span class="text-white text-base tracking-wide uppercase">UVx4OPERATORS</span></div><span class="text-xs text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase font-header">RESERVED</span></div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition"><div class="flex items-center space-x-3"><span class="font-header text-gray-400 text-xs bg-gray-800 px-2 py-1 rounded">SLOT 02</span><span class="text-gray-300 text-base tracking-wide uppercase">TEAM INFERNO</span></div><span class="text-xs text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase font-header">RESERVED</span></div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition"><div class="flex items-center space-x-3"><span class="font-header text-gray-400 text-xs bg-gray-800 px-2 py-1 rounded">SLOT 03</span><span class="text-gray-300 text-base tracking-wide uppercase">UNDERDOGS KI TOLI</span></div><span class="text-xs text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase font-header">RESERVED</span></div>
+                        <div class="flex items-center justify-between p-4 hover:bg-gray-900/20 transition"><div class="flex items-center space-x-3"><span class="font-header text-gray-600 text-xs bg-black px-2 py-1 rounded">SLOT 04</span><span class="text-gray-600 tracking-wide uppercase italic">VACANT SLOT</span></div><span class="text-xs text-green-400 bg-green-400/10 border border-green-500/20 px-2 py-0.5 rounded uppercase font-header">AVAILABLE</span></div>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 w-full">
-        <p class="font-header font-black text-sm text-gray-400 uppercase">UV ESPORTS</p>
-        <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. All Rights Reserved.</p>
+    ). All Rights Reserved.</p>
     </footer>
+
+    <script>
+        let menuOpen = false;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const iconPath = document.getElementById('iconPath');
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                menu.classList.remove('hidden');
+                iconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                iconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
 </body>
 </html>
