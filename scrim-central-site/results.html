@@ -15,7 +15,6 @@
 </head>
 <body class="text-white antialiased premium-gradient min-h-screen flex flex-col justify-between">
 
-    <!-- Header Navigation -->
     <header class="border-b border-gray-900 bg-[#0a0c10]/95 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2 focus:outline-none">
@@ -36,78 +35,42 @@
         </div>
     </header>
 
-    <!-- Main Section -->
-    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        
-        <!-- Left Side: Basic Message -->
-        <div class="space-y-6">
-            <div class="border-l-4 border-red-500 pl-3">
-                <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Score Sheets</p>
-                <h2 class="text-2xl font-header font-black uppercase text-white">Match Results</h2>
-            </div>
-            <div class="bg-[#0a0c10] border border-gray-900 rounded-xl p-6 space-y-3 font-sans">
-                <p class="text-base text-gray-300 font-bold">Daily Scoreboards TBA</p>
-                <p class="text-sm text-gray-400">Match summary posters, kill logs, and daily booyah tables will be updated immediately after the scrim lobbies wrap up.</p>
-            </div>
+    <main class="max-w-7xl mx-auto px-6 py-12 w-full flex-grow space-y-8">
+        <div class="border-l-4 border-red-500 pl-3">
+            <p class="text-xs font-gaming text-red-500 uppercase tracking-widest font-bold">Score Sheets</p>
+            <h2 class="text-2xl font-header font-black uppercase text-white">Official Match Results</h2>
         </div>
-
-        <!-- Right Side: Automated Points Calculator -->
-        <div class="bg-[#0a0c10] border border-gray-800 rounded-2xl p-6 shadow-2xl space-y-6">
-            <div class="border-b border-gray-900 pb-3">
-                <h3 class="text-base font-header font-black text-white uppercase tracking-wide">Scrim Score Calculator</h3>
-                <p class="text-[10px] uppercase font-gaming text-gray-500 mt-1">Official Organizer Tool</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-[#0a0c10] border border-gray-800 rounded-xl p-8 space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-red-500/10 border border-red-500/30 text-red-500 px-2.5 py-1 rounded font-bold font-gaming">LATEST LOBBIES</span>
+                    <span class="text-xs text-gray-500 font-gaming">DAILY SCRIMS</span>
+                </div>
+                <h3 class="text-lg font-header font-bold text-white uppercase">Daily Room Records</h3>
+                <p class="text-sm text-gray-400 font-sans leading-relaxed">
+                    Match summary posters, official kill logs, and daily booyah charts are processed directly by the UV management desk. Verified logs will display here immediately after daily custom rooms end.
+                </p>
+                <div class="pt-2">
+                    <a href="leaderboard.html" class="inline-block border border-gray-700 hover:border-white text-gray-300 font-header text-xs px-6 py-3 rounded-lg transition uppercase font-bold">
+                        Check Overall Standings
+                    </a>
+                </div>
             </div>
-            
-            <div class="space-y-4 text-xs font-gaming">
-                <div>
-                    <label class="block text-gray-400 uppercase font-bold mb-1">Squad Name</label>
-                    <input type="text" id="calcSquad" placeholder="e.g., UVx4OPERATORS" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-400 uppercase font-bold mb-1">Placement Points</label>
-                        <input type="number" id="calcPlace" placeholder="e.g., 12" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 uppercase font-bold mb-1">Kill / Finish Points</label>
-                        <input type="number" id="calcKills" placeholder="e.g., 8" class="w-full bg-black/50 border border-gray-800 rounded p-3 text-white focus:outline-none focus:border-red-500 text-sm font-medium">
-                    </div>
-                </div>
-                
-                <button onclick="calculateTotalScore()" class="w-full bg-red-600 hover:bg-red-700 text-white font-header font-black py-3.5 rounded-xl uppercase tracking-wider text-xs transition">
-                    Compute Total Score
-                </button>
 
-                <!-- Display Box -->
-                <div id="calcResultBox" class="hidden bg-black/40 border border-gray-900 rounded-xl p-4 text-center font-header">
-                    <p class="text-gray-400 text-xs uppercase font-gaming font-bold">Calculated Score Output</p>
-                    <p id="calcOutputText" class="text-xl text-white mt-1 uppercase font-bold"></p>
-                </div>
+            <div class="bg-[#0a0c10]/40 border border-gray-900 border-dashed rounded-xl p-6 flex flex-col justify-center space-y-3">
+                <h4 class="font-header font-bold text-gray-400 uppercase text-sm tracking-wide">⚠️ Notice For Team Leaders</h4>
+                <p class="text-xs text-gray-500 font-sans leading-relaxed">
+                    Only results uploaded by official owners ("Underdogs Ki Toli") are valid. If you find any mismatch in your placement points or kill points logs, kindly drop a snapshot in the official WhatsApp support channel within 2 hours.
+                </p>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 w-full">
+    <footer class="border-t border-gray-900 bg-[#06070a] py-8 text-center text-xs text-gray-500 space-y-2 w-full">
         <p class="font-header font-black text-sm text-gray-400 uppercase">UV ESPORTS</p>
         <p class="pt-2 font-sans text-[11px] text-gray-600">&copy; 2026 UV ESPORTS. All Rights Reserved.</p>
     </footer>
 
-    <!-- Calculator Logic Script -->
-    <script>
-        function calculateTotalScore() {
-            const squad = document.getElementById('calcSquad').value || "UNKNOWN SQUAD";
-            const place = parseInt(document.getElementById('calcPlace').value) || 0;
-            const kills = parseInt(document.getElementById('calcKills').value) || 0;
-            
-            const total = place + kills;
-            
-            const resultBox = document.getElementById('calcResultBox');
-            const outputText = document.getElementById('calcOutputText');
-            
-            outputText.innerHTML = squad + ": <span class='text-red-500 text-2xl font-black'>" + total + "</span> Points";
-            resultBox.classList.remove('hidden');
-        }
-    </script>
 </body>
 </html>
